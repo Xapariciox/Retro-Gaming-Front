@@ -1,6 +1,7 @@
 {
     "name": "week6.redux",
     "version": "0.1.0",
+    "manifest_version": 2,
     "private": true,
     "scripts": {
         "start": "react-scripts start",
