@@ -5,11 +5,11 @@ export type protoUser = {
     email?: string;
     imageProfile?: string;
     password?: string;
-    purchasedProducts?: Array<MyProducts>;
+    purchasedProducts?: Array<product>;
     favorites?: Array<string>;
-    cart?: Array<MyProducts>;
+    cart?: Array<product>;
 };
-export type MyProducts = {
+export type product = {
     product: string | ProductI;
     amount: number;
     isBuy: boolean;
@@ -20,7 +20,7 @@ export type UserI = {
     email: string;
     imageProfile: string;
     password: string;
-    purchasedProducts: Array<MyProducts>;
+    purchasedProducts: Array<product>;
     favorites: Array<string>;
-    cart: Array<MyProducts>;
+    cart: Array<product>;
 };

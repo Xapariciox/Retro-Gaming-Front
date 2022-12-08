@@ -72,7 +72,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addfavorites(data: Partial<UserI>, token: string) {
+    addfavorites(data: Partial<UserI>, token: string): Promise<UserI> {
         return fetch(`${this.url}/addfavorites`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -86,7 +86,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteFavorites(data: Partial<UserI>, token: string) {
+    deleteFavorites(data: Partial<UserI>, token: string): Promise<id> {
         return fetch(`${this.url}/deletefavorites`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -100,7 +100,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addCart(data: Partial<UserI>, token: string) {
+    addCart(data: Partial<UserI>, token: string): Promise<UserI> {
         return fetch(`${this.url}/addcart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -114,7 +114,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteCart(data: Partial<UserI>, token: string) {
+    deleteCart(data: Partial<UserI>, token: string): Promise<id> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -128,7 +128,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    updateCart(data: Partial<UserI>, token: string) {
+    updateCart(data: Partial<UserI>, token: string): Promise<UserI> {
         return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -142,7 +142,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    buyCart(token: string) {
+    buyCart(token: string): Promise<UserI> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             headers: {
