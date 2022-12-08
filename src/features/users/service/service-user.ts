@@ -129,7 +129,7 @@ export class ServiceUsers implements RepositoryUsers {
         });
     }
     updateCart(data: Partial<UserI>, token: string) {
-        return fetch(`${this.url}/deletecart`, {
+        return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {
