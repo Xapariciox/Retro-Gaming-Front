@@ -14,9 +14,12 @@ export class ServiceProducts implements RepositoryProducts {
                 'Content-Type': 'application/json',
             },
         }).then((response) => {
-            return response.json().catch((error: Error) => {
-                return error;
-            });
+            return response
+                .json()
+                .then((product) => product.Products)
+                .catch((error: Error) => {
+                    return error;
+                });
         });
     }
     get(id: id): Promise<ProductI> {

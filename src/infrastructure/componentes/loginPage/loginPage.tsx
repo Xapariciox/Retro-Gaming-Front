@@ -1,13 +1,14 @@
 import { SyntheticEvent, useState } from 'react';
-import { useUser } from '../../../features/users/hook/userUser';
-import { ServiceUsers } from '../../../features/users/service/service-user';
+import { Link } from 'react-router-dom';
+import { useUser } from '../../../features/users/hook/useUser';
+
 type formData = {
     email: string;
     password: string;
 };
 function LoginPage() {
     const { user, handleLogin } = useUser();
-    const userRepo = new ServiceUsers();
+
     const initialState: formData = {
         email: '',
         password: '',
@@ -50,9 +51,12 @@ function LoginPage() {
                 <button type="submit" className={'prueba'}>
                     Login
                 </button>
-                <a className={'prueba'} href="#">
-                    Registrate ahora!
-                </a>
+                {/* <a href="/register">
+                    aun no estas registrado? */}
+                <Link to="/register">
+                    No estas Registrado? Registrate ahora
+                </Link>
+                {/* </a> */}
             </form>
         </div>
     );

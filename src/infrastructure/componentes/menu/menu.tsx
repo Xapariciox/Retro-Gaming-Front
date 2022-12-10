@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 
-export function Home() {
+export function Menu() {
     const Home = [
-        { id: 1, path: '', label: 'Home' },
+        { id: 1, path: '', label: 'Menu' },
         { id: 2, path: 'Login', label: 'Login' },
         { id: 3, path: 'Register', label: 'Register' },
+        { id: 4, path: 'seccionconsoles', label: 'seccionConsoles' },
     ];
     return (
         <>
@@ -18,4 +19,4 @@ export function Home() {
         </>
     );
 }
-export default Home;
+export default Menu;
