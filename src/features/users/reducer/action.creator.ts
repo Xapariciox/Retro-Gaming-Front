@@ -1,18 +1,20 @@
 import { productsInCart, productsInFavorites, UserToken } from '../types/types';
 import { createAction } from '@reduxjs/toolkit';
-import { actionTypes } from './action.types';
-export const startlogin = createAction<void>(actionTypes.startlogin);
-export const loginFinish = createAction<UserToken>(actionTypes.loginFinish);
-export const logoutFinish = createAction<void>(actionTypes.logoutFinish);
-export const addCart = createAction<productsInCart>(actionTypes.addCart);
+import { actionTypesUser } from './action.types';
+export const startlogin = createAction<void>(actionTypesUser.startlogin);
+export const loginFinish = createAction<UserToken>(actionTypesUser.loginFinish);
+export const logoutFinish = createAction<void>(actionTypesUser.logoutFinish);
+export const addCart = createAction<productsInCart>(actionTypesUser.addCart);
 export const addFavorites = createAction<productsInFavorites>(
-    actionTypes.addFavorites
+    actionTypesUser.addFavorites
 ); // preguntar
-export const deleteCart = createAction<productsInCart>(actionTypes.deleteCart);
+export const deleteCart = createAction<productsInCart>(
+    actionTypesUser.deleteCart
+);
 export const favoritesDelete = createAction<productsInFavorites>(
-    actionTypes.favoritesDelete
+    actionTypesUser.favoritesDelete
 ); //preguntar
-export const buyCart = createAction<productsInCart>(actionTypes.buyCart); // preguntar
+export const buyCart = createAction<productsInCart>(actionTypesUser.buyCart); // preguntar
 export const editAmountCart = createAction<productsInCart>(
-    actionTypes.editAmountCart
+    actionTypesUser.editAmountCart
 );

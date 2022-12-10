@@ -1,4 +1,4 @@
-export const actionTypes = {
+export const actionTypesUser = {
     startlogin: 'user@startLogin',
     loginFinish: 'user@loginFinish',
     logoutFinish: 'user@logoutFinish',

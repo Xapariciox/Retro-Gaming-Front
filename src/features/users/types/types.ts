@@ -17,10 +17,10 @@ export type protoUser = {
     password?: string;
     purchasedProducts?: Array<product>;
     favorites?: Array<string>;
-    cart?: Array<product>;
+    cart?: Array<productsInCart>;
 };
 export type product = {
-    product: string | ProductI;
+    productId: string | ProductI;
     amount: number;
     isBuy: boolean;
 };
