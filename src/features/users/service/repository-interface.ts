@@ -1,8 +1,8 @@
-import { protoUser, UserI } from '../types/types';
+import { protoUser, UserI, UserToken } from '../types/types';
 
 export type id = string | number;
 export interface RepositoryUsers {
-    login: (user: Partial<protoUser>) => Promise<string>;
+    login: (user: Partial<protoUser>) => Promise<UserToken>;
     register: (user: Partial<protoUser>) => Promise<UserI>;
     deleteAccount: (token: string) => Promise<id>;
     get: (id: id) => Promise<UserI>;

@@ -1,12 +1,12 @@
 import { id, RepositoryUsers } from './repository-interface';
-import { protoUser, UserI } from '../types/types';
+import { protoUser, UserI, UserToken } from '../types/types';
 
 export class ServiceUsers implements RepositoryUsers {
     url: string;
     constructor() {
         this.url = 'http://localhost:7700/users';
     }
-    login(user: Partial<protoUser>): Promise<string> {
+    login(user: Partial<protoUser>): Promise<UserToken> {
         return fetch(`${this.url}/login`, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -39,7 +39,7 @@ export class ServiceUsers implements RepositoryUsers {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         })
             .then((response) => response.json())
@@ -64,7 +64,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -78,7 +78,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -92,7 +92,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -106,7 +106,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -120,7 +120,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -134,7 +134,7 @@ export class ServiceUsers implements RepositoryUsers {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -147,7 +147,7 @@ export class ServiceUsers implements RepositoryUsers {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
