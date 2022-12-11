@@ -5,9 +5,7 @@ export const startlogin = createAction<void>(actionTypesUser.startlogin);
 export const loginFinish = createAction<UserToken>(actionTypesUser.loginFinish);
 export const logoutFinish = createAction<void>(actionTypesUser.logoutFinish);
 export const addCart = createAction<productsInCart>(actionTypesUser.addCart);
-export const addFavorites = createAction<productsInFavorites>(
-    actionTypesUser.addFavorites
-); // preguntar
+export const addFavorites = createAction<string>(actionTypesUser.addFavorites); // preguntar
 export const deleteCart = createAction<productsInCart>(
     actionTypesUser.deleteCart
 );

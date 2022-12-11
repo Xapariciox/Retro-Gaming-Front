@@ -2,8 +2,9 @@ import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '../../../infrastructure/store/store';
 import { ServiceUsers } from '../service/service-user';
-import { protoUser, UserI } from '../types/types';
+import { protoUser } from '../types/types';
 import * as ac from '../reducer/action.creator';
+
 export const useUser = () => {
     const user = useSelector((state: rootState) => state.user);
 
@@ -15,15 +16,15 @@ export const useUser = () => {
             .login(user)
             .then((response) => dispatcher(ac.loginFinish(response)));
     };
-    // const handleAddFavorites = (data: UserI) => {
-    //     repositoryUser
-    //         .addfavorites(data.id)
-    //         .then((response) => dispatcher(ac.addFavorites(response as any)));
-    // };
-
+    const handleAddFavorites = (data: string) => {
+        repositoryUser.addfavorites(data).then(() => {
+            console.log(data);
+            dispatcher(ac.addFavorites(data));
+        });
+    };
     return {
         user,
         handleLogin,
-        // handleAddFavorites,
+        handleAddFavorites,
     };
 };

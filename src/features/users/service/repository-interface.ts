@@ -1,16 +1,14 @@
-import { protoUser, UserI, UserToken } from '../types/types';
-
 export type id = string | number;
-export interface RepositoryUsers {
-    login: (user: Partial<protoUser>) => Promise<UserToken>;
-    register: (user: Partial<protoUser>) => Promise<UserI>;
+export interface RepositoryUsers<T> {
+    login: (user: Partial<T>) => Promise<T>;
+    register: (user: Partial<T>) => Promise<T>;
     deleteAccount: (token: string) => Promise<id>;
-    get: (id: id) => Promise<UserI>;
-    patch: (data: Partial<UserI>, token: string) => Promise<UserI>;
-    addfavorites: (data: Partial<UserI>, token: string) => Promise<UserI>;
-    deleteFavorites: (data: Partial<UserI>, token: string) => Promise<id>;
-    addCart: (data: Partial<UserI>, token: string) => Promise<UserI>;
-    deleteCart: (data: Partial<UserI>, token: string) => Promise<id>;
-    updateCart: (data: Partial<UserI>, token: string) => Promise<UserI>;
-    buyCart: (token: string) => Promise<UserI>;
+    get: (id: id) => Promise<T>;
+    patch: (data: Partial<T>) => Promise<T>;
+    addfavorites: (data: Partial<T>) => Promise<T>;
+    deleteFavorites: (data: Partial<T>) => Promise<id>;
+    addCart: (data: Partial<T>) => Promise<T>;
+    deleteCart: (data: Partial<T>) => Promise<id>;
+    updateCart: (data: Partial<T>) => Promise<T>;
+    buyCart: () => Promise<T>;
 }

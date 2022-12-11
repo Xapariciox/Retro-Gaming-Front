@@ -44,15 +44,9 @@ export const userReducer = createReducer(initialState, (builder) => {
     }));
     builder.addCase(ac.addFavorites, (state, action) => ({
         ...state,
-        isLogged: true,
-        token: action.payload.token,
-        isLogging: false,
         user: {
             ...(state.user as UserI),
-            favorites: [
-                ...(state.user as UserI).favorites,
-                action.payload.productId,
-            ],
+            favorites: [...(state.user as UserI).favorites, action.payload],
         },
     }));
     builder.addCase(ac.deleteCart, (state, action) => ({
@@ -60,7 +54,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         user: {
             ...(state.user as UserI),
             cart: (state.user as UserI).cart.filter(
-                (item) => item.productId !== action.payload.productId
+                (item) => item.id !== action.payload.id
             ),
         },
         token: action.payload.token,
@@ -72,7 +66,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         user: {
             ...(state.user as UserI),
             favorites: (state.user as UserI).favorites.filter(
-                (item) => item !== action.payload.productId
+                (item) => item !== action.payload.id
             ),
         },
         token: action.payload.token,
@@ -96,10 +90,7 @@ export const userReducer = createReducer(initialState, (builder) => {
             cart: (state.user as UserI).cart.map(
                 (
                     item //Preguntar
-                ) =>
-                    item.productId === action.payload.productId
-                        ? action.payload
-                        : item
+                ) => (item.id === action.payload.id ? action.payload : item)
             ),
         },
         isLogged: false,

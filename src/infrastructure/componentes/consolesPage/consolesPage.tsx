@@ -1,13 +1,10 @@
 import { useProduct } from '../../../features/products/hook/useproduct';
+import { useUser } from '../../../features/users/hook/useUser';
 
 function SeccionConsoles() {
     const { products } = useProduct();
-    // const { handleAddFavorites } = useUser();
-    // const handleClick = () => {
-    //     products.map((item) => {
-    //         handleAddFavorites(item as any);
-    //     });
-    // };
+    const { handleAddFavorites } = useUser();
+
     return (
         <>
             <ul>
@@ -16,7 +13,13 @@ function SeccionConsoles() {
                         <div>
                             <div>{item.name}</div>
                         </div>
-                        <button>⭐</button>
+                        <button
+                            onClick={() =>
+                                handleAddFavorites(item.id as string)
+                            }
+                        >
+                            ⭐
+                        </button>
                         <div>
                             <img src={item.image} />
                         </div>

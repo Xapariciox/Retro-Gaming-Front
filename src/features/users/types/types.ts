@@ -1,13 +1,13 @@
 import { ProductI } from '../../products/types/products';
 export type productsInCart = {
-    productId: string;
+    id: string;
     amount: number;
     token: string;
     isBuy: boolean;
 };
 export type productsInFavorites = {
     token: string;
-    productId: string;
+    id: string;
 };
 
 export type protoUser = {
@@ -20,7 +20,7 @@ export type protoUser = {
     cart?: Array<productsInCart>;
 };
 export type product = {
-    productId: string | ProductI;
+    id: string | ProductI;
     amount: number;
     isBuy: boolean;
 };

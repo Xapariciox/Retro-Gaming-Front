@@ -1,7 +1,7 @@
-import { id, RepositoryUsers } from './repository-interface';
+import { id } from './repository-interface';
 import { protoUser, UserI, UserToken } from '../types/types';
 
-export class ServiceUsers implements RepositoryUsers {
+export class ServiceUsers {
     url: string;
     constructor() {
         this.url = 'http://localhost:7700/users';
@@ -34,7 +34,7 @@ export class ServiceUsers implements RepositoryUsers {
                 return error;
             });
     }
-    deleteAccount(token: string): Promise<id> {
+    deleteAccount(): Promise<id> {
         return fetch(`${this.url}/delete`, {
             method: 'POST',
             headers: {
@@ -58,7 +58,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    patch(data: Partial<UserI>, token: string): Promise<UserI> {
+    patch(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/updateuser`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -72,10 +72,13 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addfavorites(data: Partial<UserI>, token: string): Promise<UserI> {
+    addfavorites(data: string): Promise<UserI> {
+        console.log(data);
         return fetch(`${this.url}/addfavorites`, {
             method: 'PATCH',
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                id: data,
+            }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -86,7 +89,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteFavorites(data: Partial<UserI>, token: string): Promise<id> {
+    deleteFavorites(data: Partial<UserI>): Promise<id> {
         return fetch(`${this.url}/deletefavorites`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -100,7 +103,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addCart(data: Partial<UserI>, token: string): Promise<UserI> {
+    addCart(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/addcart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -114,7 +117,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteCart(data: Partial<UserI>, token: string): Promise<id> {
+    deleteCart(data: Partial<UserI>): Promise<id> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -128,7 +131,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    updateCart(data: Partial<UserI>, token: string): Promise<UserI> {
+    updateCart(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -142,7 +145,7 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    buyCart(token: string): Promise<UserI> {
+    buyCart(): Promise<UserI> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             headers: {

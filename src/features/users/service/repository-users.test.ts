@@ -61,7 +61,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue(''),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteAccount(mockdata.id);
+            const result = await service.deleteAccount();
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual('');
         });
@@ -73,7 +73,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.patch(mockdata, mockdata.id);
+            const result = await service.patch(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -85,7 +85,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.addfavorites(mockdata, mockdata.id);
+            const result = await service.addfavorites(mockdata.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -97,7 +97,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteFavorites(mockdata, mockdata.id);
+            const result = await service.deleteFavorites(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -109,7 +109,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.addCart(mockdata, mockdata.id);
+            const result = await service.addCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -121,7 +121,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteCart(mockdata, mockdata.id);
+            const result = await service.deleteCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -133,7 +133,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.updateCart(mockdata, mockdata.id);
+            const result = await service.updateCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -145,7 +145,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.buyCart(mockdata.id);
+            const result = await service.buyCart();
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });

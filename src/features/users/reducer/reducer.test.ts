@@ -9,11 +9,11 @@ describe('Given the function userReducer', () => {
         id: '2',
         email: '@gmail.com',
         imageProfile: 'url',
-        purchasedProducts: [{ productId: 'hola', amount: 2, isBuy: true }],
+        purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
         favorites: [''],
         cart: [
             {
-                productId: 'hola',
+                id: 'hola',
                 amount: 2,
                 isBuy: true,
                 token: 'szzz',
@@ -189,11 +189,11 @@ describe('Given the function userReducer', () => {
             id: '2',
             email: '@gmail.com',
             imageProfile: 'url',
-            purchasedProducts: [{ productId: 'hola', amount: 2, isBuy: true }],
+            purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
             favorites: ['5'],
             cart: [
                 {
-                    productId: '2',
+                    id: '2',
                     amount: 2,
                     isBuy: true,
                     token: 'szzz',
