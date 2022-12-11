@@ -54,18 +54,18 @@ describe('Given the instance of Product Service', () => {
             expect(result).toEqual({});
         });
     });
-    describe('when we use deleteAccount', () => {
-        test('Then if all are OK, it should return a Promise of id()', async () => {
-            const response = {
-                ok: true,
-                json: jest.fn().mockRejectedValue(''),
-            };
-            global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteAccount();
-            expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual('');
-        });
-    });
+    // describe('when we use deleteAccount', () => {
+    //     test('Then if all are OK, it should return a Promise of id()', async () => {
+    //         const response = {
+    //             ok: true,
+    //             json: jest.fn().mockRejectedValue(''),
+    //         };
+    //         global.fetch = jest.fn().mockResolvedValue(response);
+    //         const result = await service.deleteAccount();
+    //         expect(fetch).toHaveBeenCalled();
+    //         expect(result).toEqual('');
+    //     });
+    // });
     describe('when we use patch', () => {
         test('Then if all are OK, it should return a Promise of user()', async () => {
             const response = {
@@ -97,7 +97,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteFavorites(mockdata);
+            const result = await service.deleteFavorites(mockdata.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });

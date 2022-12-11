@@ -6,6 +6,7 @@ export function Menu() {
         { id: 2, path: 'Login', label: 'Login' },
         { id: 3, path: 'Register', label: 'Register' },
         { id: 4, path: 'seccionconsoles', label: 'seccionConsoles' },
+        { id: 5, path: 'profile', label: 'profile' },
     ];
     return (
         <>

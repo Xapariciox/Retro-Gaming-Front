@@ -89,10 +89,12 @@ export class ServiceUsers {
             });
         });
     }
-    deleteFavorites(data: Partial<UserI>): Promise<id> {
+    deleteFavorites(data: string): Promise<id> {
         return fetch(`${this.url}/deletefavorites`, {
             method: 'PATCH',
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                id: data,
+            }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

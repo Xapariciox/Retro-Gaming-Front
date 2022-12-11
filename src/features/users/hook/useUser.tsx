@@ -18,13 +18,24 @@ export const useUser = () => {
     };
     const handleAddFavorites = (data: string) => {
         repositoryUser.addfavorites(data).then(() => {
-            console.log(data);
             dispatcher(ac.addFavorites(data));
+        });
+    };
+    const handleDeleteFavorites = (data: string) => {
+        repositoryUser.deleteFavorites(data).then(() => {
+            dispatcher(ac.favoritesDelete(data));
+        });
+    };
+    const handleDeleteAccount = () => {
+        repositoryUser.deleteAccount().then(() => {
+            dispatcher(ac.deleteAccount());
         });
     };
     return {
         user,
         handleLogin,
         handleAddFavorites,
+        handleDeleteFavorites,
+        handleDeleteAccount,
     };
 };

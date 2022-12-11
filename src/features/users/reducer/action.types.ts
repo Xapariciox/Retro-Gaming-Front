@@ -7,5 +7,6 @@ export const actionTypesUser = {
     deleteCart: 'user@deleteCart',
     favoritesDelete: 'user@favoritesDelete',
     buyCart: 'user@buyCart',
-    editAmountCart: 'editAmountCar',
+    editAmountCart: 'user@editAmountCar',
+    deleteAccount: 'deleteAccount',
 };

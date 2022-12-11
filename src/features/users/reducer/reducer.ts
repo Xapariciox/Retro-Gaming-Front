@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
+
 import { UserI } from '../types/types';
 import * as ac from './action.creator';
 
@@ -10,7 +11,7 @@ const initialState: {
 } = { user: null, token: null, isLogged: false, isLogging: false };
 
 export const userReducer = createReducer(initialState, (builder) => {
-    builder.addCase(ac.startlogin, (state, _action) => ({
+    builder.addCase(ac.startlogin, (state) => ({
         ...state,
         token: null,
         isLogged: false,
@@ -24,7 +25,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         isLogged: true,
         isLogging: false,
     }));
-    builder.addCase(ac.logoutFinish, (state, _action) => ({
+    builder.addCase(ac.logoutFinish, (state) => ({
         ...state,
         token: null,
         user: null,
@@ -66,12 +67,9 @@ export const userReducer = createReducer(initialState, (builder) => {
         user: {
             ...(state.user as UserI),
             favorites: (state.user as UserI).favorites.filter(
-                (item) => item !== action.payload.id
+                (item) => item !== action.payload
             ),
         },
-        token: action.payload.token,
-        isLogged: true,
-        isLogging: false,
     }));
     builder.addCase(ac.buyCart, (state, action) => ({
         ...state,
@@ -97,4 +95,12 @@ export const userReducer = createReducer(initialState, (builder) => {
         isLogging: false,
         token: null,
     }));
+    builder.addCase(ac.deleteAccount, (state, action) => ({
+        ...state,
+        token: null,
+        user: null,
+        isLogged: false,
+        isLogging: false,
+    }));
+    builder.addDefaultCase((state) => state);
 });

@@ -4,6 +4,7 @@ import LoginPage from '../loginPage/loginPage';
 import RegisterPage from '../registerPage/registerPage';
 import { HomePage } from '../homePage/home';
 import SeccionConsoles from '../consolesPage/consolesPage';
+import Profile from '../profile/profile';
 
 export function AppRoutes() {
     return (
@@ -19,6 +20,7 @@ export function AppRoutes() {
                     path="seccionconsoles"
                     element={<SeccionConsoles></SeccionConsoles>}
                 ></Route>
+                <Route path="profile" element={<Profile></Profile>}></Route>
                 <Route path="*" element={<Navigate replace to="" />}></Route>
             </Routes>
         </>

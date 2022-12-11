@@ -3,7 +3,7 @@ import { useUser } from '../../../features/users/hook/useUser';
 
 function SeccionConsoles() {
     const { products } = useProduct();
-    const { handleAddFavorites } = useUser();
+    const { handleAddFavorites, handleDeleteFavorites } = useUser();
 
     return (
         <>
@@ -19,6 +19,13 @@ function SeccionConsoles() {
                             }
                         >
                             ⭐
+                        </button>
+                        <button
+                            onClick={() =>
+                                handleDeleteFavorites(item.id as string)
+                            }
+                        >
+                            ❌
                         </button>
                         <div>
                             <img src={item.image} />
