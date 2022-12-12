@@ -73,7 +73,6 @@ export class ServiceUsers {
         });
     }
     addfavorites(data: string): Promise<UserI> {
-        console.log(data);
         return fetch(`${this.url}/addfavorites`, {
             method: 'PATCH',
             body: JSON.stringify({

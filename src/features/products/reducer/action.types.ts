@@ -1,3 +1,3 @@
 export const actionTypesProduct = {
-    load: 'Product@load',
+    load: 'Products@load',
 };
