@@ -10,7 +10,7 @@ describe('Given the function userReducer', () => {
         email: '@gmail.com',
         imageProfile: 'url',
         purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
-        favorites: [''],
+        favorites: [],
         cart: [
             {
                 id: 'hola',
@@ -190,7 +190,7 @@ describe('Given the function userReducer', () => {
             email: '@gmail.com',
             imageProfile: 'url',
             purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
-            favorites: ['5'],
+            favorites: [],
             cart: [
                 {
                     id: '2',

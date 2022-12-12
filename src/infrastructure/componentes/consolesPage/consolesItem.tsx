@@ -9,14 +9,8 @@ function ConsolesItem({ item }: { item: ProductI }) {
                 <div>
                     <div>{item.name}</div>
                 </div>
-                <button onClick={() => handleAddFavorites(item.id as string)}>
-                    ⭐
-                </button>
-                <button
-                    onClick={() => handleDeleteFavorites(item.id as string)}
-                >
-                    ❌
-                </button>
+                <button onClick={() => handleAddFavorites(item)}>⭐</button>
+                <button onClick={() => handleDeleteFavorites(item)}>❌</button>
                 <div>
                     <img src={item.image} />
                 </div>

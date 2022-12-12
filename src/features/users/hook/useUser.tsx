@@ -4,6 +4,7 @@ import { rootState } from '../../../infrastructure/store/store';
 import { ServiceUsers } from '../service/service-user';
 import { protoUser } from '../types/types';
 import * as ac from '../reducer/action.creator';
+import { ProductI } from '../../products/types/products';
 
 export const useUser = () => {
     const user = useSelector((state: rootState) => state.user);
@@ -12,17 +13,24 @@ export const useUser = () => {
     const repositoryUser = useMemo(() => new ServiceUsers(), []);
 
     const handleLogin = (user: protoUser) => {
-        repositoryUser
-            .login(user)
-            .then((response) => dispatcher(ac.loginFinish(response)));
+        repositoryUser.login(user).then((response) => {
+            dispatcher(ac.loginFinish(response));
+            if (response.token) localStorage.setItem('token', response.token);
+        });
     };
-    const handleAddFavorites = (data: string) => {
-        repositoryUser.addfavorites(data).then(() => {
+    const handleAddFavorites = (data: ProductI) => {
+        if (!data.id) {
+            throw new Error();
+        }
+        repositoryUser.addfavorites(data.id).then(() => {
             dispatcher(ac.addFavorites(data));
         });
     };
-    const handleDeleteFavorites = (data: string) => {
-        repositoryUser.deleteFavorites(data).then(() => {
+    const handleDeleteFavorites = (data: ProductI) => {
+        if (!data.id) {
+            throw new Error();
+        }
+        repositoryUser.deleteFavorites(data.id).then(() => {
             dispatcher(ac.favoritesDelete(data));
         });
     };

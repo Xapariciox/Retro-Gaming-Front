@@ -31,7 +31,7 @@ export type UserI = {
     imageProfile: string;
     password: string;
     purchasedProducts: Array<product>;
-    favorites: Array<string>;
+    favorites: Array<ProductI>;
     cart: Array<productsInCart>;
 };
 export type UserToken = {

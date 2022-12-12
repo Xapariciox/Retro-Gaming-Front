@@ -7,7 +7,7 @@ type formData = {
     password: string;
 };
 function LoginPage() {
-    const { user, handleLogin } = useUser();
+    const { handleLogin } = useUser();
 
     const initialState: formData = {
         email: '',
@@ -21,10 +21,8 @@ function LoginPage() {
     const handleLoginSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleLogin(formState);
-        if (user.token) {
-            localStorage.setItem('token', user.token);
-        }
     };
+
     return (
         <div className="formulario">
             <form onSubmit={handleLoginSubmit} className="formulario-submit">

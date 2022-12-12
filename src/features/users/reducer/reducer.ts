@@ -67,7 +67,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         user: {
             ...(state.user as UserI),
             favorites: (state.user as UserI).favorites.filter(
-                (item) => item !== action.payload
+                (item) => item.id !== action.payload.id
             ),
         },
     }));
