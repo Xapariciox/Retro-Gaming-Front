@@ -1,36 +1,14 @@
 import { useProduct } from '../../../features/products/hook/useproduct';
-import { useUser } from '../../../features/users/hook/useUser';
+import ConsolesItem from './consolesItem';
 
 function SeccionConsoles() {
     const { products } = useProduct();
-    const { handleAddFavorites, handleDeleteFavorites } = useUser();
 
     return (
         <>
             <ul>
                 {products.map((item) => (
-                    <li key={item.id}>
-                        <div>
-                            <div>{item.name}</div>
-                        </div>
-                        <button
-                            onClick={() =>
-                                handleAddFavorites(item.id as string)
-                            }
-                        >
-                            ⭐
-                        </button>
-                        <button
-                            onClick={() =>
-                                handleDeleteFavorites(item.id as string)
-                            }
-                        >
-                            ❌
-                        </button>
-                        <div>
-                            <img src={item.image} />
-                        </div>
-                    </li>
+                    <ConsolesItem key={item.id} item={item}></ConsolesItem>
                 ))}
             </ul>
         </>
