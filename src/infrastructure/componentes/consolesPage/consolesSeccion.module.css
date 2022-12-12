@@ -1,0 +1,4 @@
+.ListConsoles {
+    display: flex;
+    flex-direction: row;
+}

@@ -3,8 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../loginPage/loginPage';
 import RegisterPage from '../registerPage/registerPage';
 import { HomePage } from '../homePage/home';
-import SeccionConsoles from '../consolesPage/consolesPage';
 import Profile from '../profile/profile';
+import SeccionConsoles from '../consolesPage/consolesSeccion';
 
 export function AppRoutes() {
     return (
@@ -17,7 +17,7 @@ export function AppRoutes() {
                     element={<RegisterPage></RegisterPage>}
                 ></Route>
                 <Route
-                    path="seccionconsoles"
+                    path="consolesPage"
                     element={<SeccionConsoles></SeccionConsoles>}
                 ></Route>
                 <Route path="profile" element={<Profile></Profile>}></Route>
