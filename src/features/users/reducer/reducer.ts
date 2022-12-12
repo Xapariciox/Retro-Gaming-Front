@@ -95,7 +95,7 @@ export const userReducer = createReducer(initialState, (builder) => {
         isLogging: false,
         token: null,
     }));
-    builder.addCase(ac.deleteAccount, (state, action) => ({
+    builder.addCase(ac.deleteAccount, (state) => ({
         ...state,
         token: null,
         user: null,

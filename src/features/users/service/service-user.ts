@@ -36,7 +36,7 @@ export class ServiceUsers {
     }
     deleteAccount(): Promise<id> {
         return fetch(`${this.url}/delete`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

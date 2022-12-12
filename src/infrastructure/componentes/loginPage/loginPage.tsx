@@ -53,9 +53,7 @@ function LoginPage() {
                 </button>
                 {/* <a href="/register">
                     aun no estas registrado? */}
-                <Link to="/register">
-                    No estas Registrado? Registrate ahora
-                </Link>
+                <Link to="/register">Are you not registered? register now</Link>
                 {/* </a> */}
             </form>
         </div>

@@ -69,10 +69,8 @@ function RegisterPage() {
                 <button type="submit" className={'prueba'}>
                     Register
                 </button>
-                {/* <a href="">
-                    <Link to="/login">Ya estas registrado? logueate ahora</Link>
-                </a> */}
-                <Link to="/login">No estas Registrado? Registrate ahora</Link>
+
+                <Link to="/login">Are you registered? login now</Link>
             </form>
         </div>
     );
