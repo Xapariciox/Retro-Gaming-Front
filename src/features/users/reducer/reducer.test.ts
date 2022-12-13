@@ -1,3 +1,4 @@
+import { ProductI } from '../../products/types/products';
 import { UserI } from '../types/types';
 import { actionTypesUser } from './action.types';
 import { userReducer } from './reducer';
@@ -95,7 +96,7 @@ describe('Given the function userReducer', () => {
         test('Then the returned state should be the original state', () => {
             action = {
                 type: actionTypesUser.addCart,
-                payload: { productId: '2', amount: 1 },
+                payload: { id: '2', amount: 1 },
             };
             state = state = {
                 user: userMock,
@@ -111,7 +112,7 @@ describe('Given the function userReducer', () => {
         test('Then the returned state should be the original state', () => {
             action = {
                 type: actionTypesUser.addFavorites,
-                payload: { productId: '23' },
+                payload: { id: '23' },
             };
             state = state = {
                 user: userMock,
@@ -120,16 +121,16 @@ describe('Given the function userReducer', () => {
                 isLogging: false,
             };
             const result = userReducer(state, action);
-            expect({ productId: result.user?.favorites.at(-1) }).toEqual(
-                action.payload
-            );
+            expect({ id: result.user?.favorites.at(-1) }).toEqual({
+                id: action.payload,
+            });
         });
     });
     describe('When the action is deleteCart', () => {
         test('Then the returned state should be the original state', () => {
             action = {
                 type: actionTypesUser.deleteCart,
-                payload: { productId: 'hola', amount: 1 },
+                payload: { id: 'hola', amount: 1 },
             };
             state = {
                 user: userMock,
@@ -147,7 +148,7 @@ describe('Given the function userReducer', () => {
         test('Then the returned state should be the original state and update the order', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
-                payload: { productId: 'hola', amount: 2 },
+                payload: { id: 'hola', amount: 2 },
             };
             state = state = {
                 user: userMock,
@@ -163,7 +164,7 @@ describe('Given the function userReducer', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
                 payload: {
-                    productId: '1',
+                    id: '1',
                     amount: 2,
                     isBuy: true,
                     token: 'szzz',
@@ -178,7 +179,7 @@ describe('Given the function userReducer', () => {
 
             const result = userReducer(state, action);
             expect(result.user?.cart).toEqual([
-                { productId: 'hola', amount: 2, isBuy: true, token: 'szzz' },
+                { id: 'hola', amount: 2, isBuy: true, token: 'szzz' },
             ]);
         });
     });
@@ -189,8 +190,11 @@ describe('Given the function userReducer', () => {
             id: '2',
             email: '@gmail.com',
             imageProfile: 'url',
-            purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
-            favorites: [],
+            purchasedProducts: [
+                { id: '6', amount: 2, isBuy: true },
+                { id: '2', amount: 2, isBuy: true },
+            ],
+            favorites: [{ id: '5' } as ProductI, { id: '2' } as ProductI],
             cart: [
                 {
                     id: '2',
@@ -203,7 +207,7 @@ describe('Given the function userReducer', () => {
         test('Then the returned state should be the original state', () => {
             action = {
                 type: actionTypesUser.favoritesDelete,
-                payload: { productId: '5', amount: 1 },
+                payload: { id: '5' },
             };
             state = {
                 user: userMock2,
@@ -213,7 +217,91 @@ describe('Given the function userReducer', () => {
             };
 
             const result = userReducer(state, action);
-            expect(result.user?.favorites).toEqual([]);
+            expect(result.user?.favorites).toEqual([{ id: '2' }]);
+        });
+    });
+    describe('When the action is deleteaccount', () => {
+        test('Then the returned state should be the original state', () => {
+            action = {
+                type: actionTypesUser.deleteAccount,
+                payload: {
+                    user: null,
+                    token: null,
+                    isLogged: false,
+                    isLogging: false,
+                },
+            };
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: false,
+            };
+
+            const result = userReducer(state, action);
+            expect(result.user).toEqual(null);
+        });
+        test('Then the returned state should be the original state', () => {
+            action = {
+                type: '',
+                payload: {
+                    user: null,
+                    token: null,
+                    isLogged: false,
+                    isLogging: false,
+                },
+            };
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: false,
+            };
+
+            const result = userReducer(state, action);
+            expect(result.user).toEqual(null);
+        });
+    });
+    describe('When the action is buyCart', () => {
+        test('Then the returned state should be the original state', () => {
+            action = {
+                type: actionTypesUser.buyCart,
+                payload: {
+                    user: null,
+                    token: null,
+                    isLogged: false,
+                    isLogging: false,
+                },
+            };
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: false,
+            };
+
+            const result = userReducer(state, action);
+            expect(result.user).toEqual({ cart: [] });
+        });
+        test('Then the returned state should be the original state', () => {
+            action = {
+                type: '',
+                payload: {
+                    user: null,
+                    token: null,
+                    isLogged: false,
+                    isLogging: false,
+                },
+            };
+            state = {
+                user: null,
+                token: null,
+                isLogged: false,
+                isLogging: false,
+            };
+
+            const result = userReducer(state, action);
+            expect(result.user).toEqual(null);
         });
     });
 });

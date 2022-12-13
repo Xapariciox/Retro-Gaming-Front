@@ -7,5 +7,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    background-color: rgba(63, 63, 191, 0.498);
+    background-color: #ffffff;
+}
+
+img {
+    width: 200px;
+}
+button {
+    height: 2rem;
 }

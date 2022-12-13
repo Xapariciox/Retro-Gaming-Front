@@ -12,7 +12,6 @@ function Favorites() {
                             <div>{item.name}</div>
                             <div>
                                 <img src={item.image} alt={item.name} />
-                                {item.image}
                             </div>
                         </div>
                     </li>

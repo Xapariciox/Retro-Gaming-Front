@@ -22,22 +22,19 @@ export const useUser = () => {
         if (!data.id) {
             throw new Error();
         }
-        repositoryUser.addfavorites(data.id).then(() => {
-            dispatcher(ac.addFavorites(data));
-        });
+        repositoryUser.addfavorites(data.id);
+        dispatcher(ac.addFavorites(data));
     };
     const handleDeleteFavorites = (data: ProductI) => {
         if (!data.id) {
             throw new Error();
         }
-        repositoryUser.deleteFavorites(data.id).then(() => {
-            dispatcher(ac.favoritesDelete(data));
-        });
+        repositoryUser.deleteFavorites(data.id);
+        dispatcher(ac.favoritesDelete(data));
     };
     const handleDeleteAccount = () => {
-        repositoryUser.deleteAccount().then(() => {
-            dispatcher(ac.deleteAccount());
-        });
+        repositoryUser.deleteAccount();
+        dispatcher(ac.deleteAccount());
     };
     return {
         user,
