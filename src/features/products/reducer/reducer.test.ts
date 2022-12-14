@@ -30,7 +30,7 @@ describe('Given the function productReducer', () => {
             expect(result).toEqual(action.payload);
         });
     });
-    describe('When the action is any other', () => {
+    describe('When the action is  other', () => {
         beforeEach(() => {
             action = {
                 type: '',

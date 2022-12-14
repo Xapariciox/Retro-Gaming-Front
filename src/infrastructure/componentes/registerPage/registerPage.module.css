@@ -1,0 +1,43 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 5rem;
+}
+
+.formularioSubmit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: brown;
+    min-height: 25rem;
+    min-width: 30rem;
+}
+.letrasFormulario {
+    font-size: 1.5rem;
+    color: black;
+    padding: 1rem;
+}
+.formularioValores {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.button {
+    border-bottom: 1px solid #cccccc;
+    border-top: 2px solid #666666;
+    border-right: 1px solid #cccccc;
+    border-left: 2px solid #666666;
+    background-color: white;
+    padding: 1rem;
+    background-color: gray;
+    border-radius: 1rem;
+}
+.label {
+    margin: 3px;
+    font-size: 20px;
+}

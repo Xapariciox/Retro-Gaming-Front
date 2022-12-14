@@ -21,3 +21,8 @@
     padding: 1rem;
     width: 100%;
 }
+.ListConsoles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

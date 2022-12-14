@@ -16,9 +16,9 @@ describe('Given LoginPage component', () => {
                     </Provider>
                 </Router>
             );
-            const element = await screen.findByPlaceholderText(/password/i);
+            const element = await screen.findByPlaceholderText(/Password/i);
             expect(element).toBeInTheDocument();
-            fireEvent.input(await screen.findByPlaceholderText('password'));
+            fireEvent.input(await screen.findByPlaceholderText('Password'));
         });
         test('Then it should display of welcome', async () => {
             render(

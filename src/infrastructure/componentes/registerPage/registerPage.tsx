@@ -1,6 +1,8 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { ServiceUsers } from '../../../features/users/service/service-user';
+import style from './registerPage.module.css';
 type formData = {
     name: string;
     email: string;
@@ -8,6 +10,7 @@ type formData = {
     password: string;
 };
 function RegisterPage() {
+    const navigate = useNavigate();
     const userRepo = new ServiceUsers();
     const initialState: formData = {
         name: '',
@@ -23,54 +26,63 @@ function RegisterPage() {
     const handleRegisterSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         userRepo.register(formState);
+        Swal.fire(`Congratulations! `, `you just registered`, 'success');
+        navigate('/login');
     };
     return (
-        <div className="formulario">
-            <form onSubmit={handleRegisterSubmit} className="formulario-submit">
-                <p>Formulario Register</p>
-                <input
-                    className={'nombre'}
-                    type="text"
-                    name="name"
-                    value={formState.name}
-                    onInput={handleRegisterInput}
-                    placeholder="name"
-                    required={true}
-                    minLength={2}
-                />
-                <input
-                    className={'email'}
-                    type="text"
-                    name="email"
-                    value={formState.email}
-                    onInput={handleRegisterInput}
-                    placeholder="email"
-                    required={true}
-                    minLength={2}
-                />
-                <input
-                    className={'password'}
-                    type="password"
-                    name="password"
-                    value={formState.password}
-                    onInput={handleRegisterInput}
-                    placeholder="password"
-                    required={true}
-                />
-                <input
-                    className={'imagen'}
-                    type="text"
-                    name="imageProfile"
-                    value={formState.imageProfile}
-                    onInput={handleRegisterInput}
-                    placeholder="Image"
-                />
+        <div className={style.formulario}>
+            <form
+                onSubmit={handleRegisterSubmit}
+                className={style.formularioSubmit}
+            >
+                <p className={style.letrasFormulario}>Formulario Register</p>
+                <div className={style.formularioValores}>
+                    <input
+                        className={style.label}
+                        type="text"
+                        name="name"
+                        value={formState.name}
+                        onInput={handleRegisterInput}
+                        placeholder="Name"
+                        required={true}
+                        minLength={2}
+                    />
+                    <input
+                        className={style.label}
+                        type="text"
+                        name="email"
+                        value={formState.email}
+                        onInput={handleRegisterInput}
+                        placeholder="email"
+                        required={true}
+                        minLength={2}
+                    />
+                    <input
+                        className={style.label}
+                        type="password"
+                        name="password"
+                        value={formState.password}
+                        onInput={handleRegisterInput}
+                        placeholder="Password"
+                        required={true}
+                    />
+                    <input
+                        className={style.label}
+                        type="text"
+                        name="imageProfile"
+                        value={formState.imageProfile}
+                        onInput={handleRegisterInput}
+                        placeholder="Image url"
+                    />
+                </div>
 
-                <button type="submit" className={'prueba'}>
+                <button type="submit" className={style.button}>
                     Register
                 </button>
 
-                <Link to="/login">Are you registered? login now</Link>
+                <Link className={style.letrasFormulario} to="/login">
+                    Are you registered? login now
+                </Link>
             </form>
         </div>
     );

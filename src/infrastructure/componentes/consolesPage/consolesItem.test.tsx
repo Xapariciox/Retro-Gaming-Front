@@ -18,7 +18,6 @@ describe('Given LoginPage component', () => {
             const element = await screen.findByText(/pepe/i);
             expect(element).toBeInTheDocument();
             userEvent.click(screen.getByText('⭐'));
-            userEvent.click(screen.getByText('❌'));
         });
     });
 });
