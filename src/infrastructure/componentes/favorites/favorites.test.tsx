@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
@@ -17,6 +18,7 @@ describe('Given LoginPage component', () => {
             );
             const element = await screen.findByText(/manio/i);
             expect(element).toBeInTheDocument();
+            userEvent.click(screen.getByText('❌'));
         });
     });
 });
