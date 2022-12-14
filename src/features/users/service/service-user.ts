@@ -1,12 +1,12 @@
-import { id, RepositoryUsers } from './repository-interface';
-import { protoUser, UserI } from '../types/types';
+import { id } from './repository-interface';
+import { protoUser, UserI, UserToken } from '../types/types';
 
-export class ServiceUsers implements RepositoryUsers {
+export class ServiceUsers {
     url: string;
     constructor() {
         this.url = 'http://localhost:7700/users';
     }
-    login(user: Partial<protoUser>): Promise<string> {
+    login(user: Partial<protoUser>): Promise<UserToken> {
         return fetch(`${this.url}/login`, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -34,12 +34,12 @@ export class ServiceUsers implements RepositoryUsers {
                 return error;
             });
     }
-    deleteAccount(token: string): Promise<id> {
+    deleteAccount(): Promise<id> {
         return fetch(`${this.url}/delete`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         })
             .then((response) => response.json())
@@ -58,13 +58,13 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    patch(data: Partial<UserI>, token: string): Promise<UserI> {
+    patch(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/updateuser`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -72,13 +72,15 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addfavorites(data: Partial<UserI>, token: string): Promise<UserI> {
+    addfavorites(data: string): Promise<UserI> {
         return fetch(`${this.url}/addfavorites`, {
             method: 'PATCH',
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                id: data,
+            }),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -86,13 +88,15 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteFavorites(data: Partial<UserI>, token: string): Promise<id> {
+    deleteFavorites(data: string): Promise<id> {
         return fetch(`${this.url}/deletefavorites`, {
             method: 'PATCH',
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                id: data,
+            }),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -100,13 +104,13 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    addCart(data: Partial<UserI>, token: string): Promise<UserI> {
+    addCart(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/addcart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -114,13 +118,13 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    deleteCart(data: Partial<UserI>, token: string): Promise<id> {
+    deleteCart(data: Partial<UserI>): Promise<id> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -128,13 +132,13 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    updateCart(data: Partial<UserI>, token: string): Promise<UserI> {
+    updateCart(data: Partial<UserI>): Promise<UserI> {
         return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {
@@ -142,12 +146,12 @@ export class ServiceUsers implements RepositoryUsers {
             });
         });
     }
-    buyCart(token: string): Promise<UserI> {
+    buyCart(): Promise<UserI> {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         }).then((response) => {
             return response.json().catch((error: Error) => {

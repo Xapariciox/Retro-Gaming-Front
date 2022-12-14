@@ -30,42 +30,7 @@ describe('Given the instance of Product Service', () => {
             expect(result).toEqual([]);
         });
     });
-    describe('when we use login', () => {
-        test('Then if all are OK, it should return a Promise of string "token"()', async () => {
-            const response = {
-                ok: true,
-                json: jest.fn().mockRejectedValue(''),
-            };
-            global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.login(mockdata);
-            expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual('');
-        });
-    });
-    describe('when we use register', () => {
-        test('Then if all are OK, it should return a Promise of user()', async () => {
-            const response = {
-                ok: true,
-                json: jest.fn().mockRejectedValue({}),
-            };
-            global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.register(mockdata);
-            expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual({});
-        });
-    });
-    describe('when we use deleteAccount', () => {
-        test('Then if all are OK, it should return a Promise of id()', async () => {
-            const response = {
-                ok: true,
-                json: jest.fn().mockRejectedValue(''),
-            };
-            global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteAccount(mockdata.id);
-            expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual('');
-        });
-    });
+
     describe('when we use patch', () => {
         test('Then if all are OK, it should return a Promise of user()', async () => {
             const response = {
@@ -73,7 +38,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.patch(mockdata, mockdata.id);
+            const result = await service.patch(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -85,7 +50,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.addfavorites(mockdata, mockdata.id);
+            const result = await service.addfavorites(mockdata.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -97,7 +62,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteFavorites(mockdata, mockdata.id);
+            const result = await service.deleteFavorites(mockdata.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -109,7 +74,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.addCart(mockdata, mockdata.id);
+            const result = await service.addCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -121,7 +86,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.deleteCart(mockdata, mockdata.id);
+            const result = await service.deleteCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -133,7 +98,7 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.updateCart(mockdata, mockdata.id);
+            const result = await service.updateCart(mockdata);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
@@ -145,7 +110,51 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.buyCart(mockdata.id);
+            const result = await service.buyCart();
+            expect(fetch).toHaveBeenCalled();
+            expect(result).toEqual({});
+        });
+    });
+    describe('when we use Login', () => {
+        test('Then if all are OK, it should return a Promise of user()', async () => {
+            const mockUser = {
+                email: 'pr@gmail.com',
+                password: '12345',
+            };
+            const response = {
+                ok: true,
+                json: jest.fn().mockRejectedValue({}),
+            };
+            global.fetch = jest.fn().mockResolvedValue(response);
+            const result = await service.login(mockUser);
+            expect(fetch).toHaveBeenCalled();
+            expect(result).toEqual({});
+        });
+    });
+    describe('when we use Register', () => {
+        test('Then if all are OK, it should return a Promise of user()', async () => {
+            const mockUser = {
+                email: 'pr@gmail.com',
+                password: '12345',
+            };
+            const response = {
+                ok: true,
+                json: jest.fn().mockRejectedValue({}),
+            };
+            global.fetch = jest.fn().mockResolvedValue(response);
+            const result = await service.register(mockUser);
+            expect(fetch).toHaveBeenCalled();
+            expect(result).toEqual({});
+        });
+    });
+    describe('when we use deleteAccount', () => {
+        test('Then if all are OK, it should return a Promise of user()', async () => {
+            const response = {
+                ok: true,
+                json: jest.fn().mockRejectedValue({}),
+            };
+            global.fetch = jest.fn().mockResolvedValue(response);
+            const result = await service.deleteAccount();
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });

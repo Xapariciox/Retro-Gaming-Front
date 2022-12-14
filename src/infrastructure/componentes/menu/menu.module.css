@@ -1,0 +1,19 @@
+.ulMenu {
+    background-color: #b53b3b;
+    margin: 0;
+    display: flex;
+    min-height: 15vh;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+}
+.linkMenu {
+    text-decoration: none;
+    background-color: #265989;
+    margin: padding;
+    color: #c3d4fb;
+    padding: 10px;
+    border-radius: 10px;
+}

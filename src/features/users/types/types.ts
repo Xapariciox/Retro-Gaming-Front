@@ -1,4 +1,14 @@
 import { ProductI } from '../../products/types/products';
+export type productsInCart = {
+    id: string;
+    amount: number;
+    token: string;
+    isBuy: boolean;
+};
+export type productsInFavorites = {
+    token: string;
+    id: string;
+};
 
 export type protoUser = {
     name?: string;
@@ -7,10 +17,10 @@ export type protoUser = {
     password?: string;
     purchasedProducts?: Array<product>;
     favorites?: Array<string>;
-    cart?: Array<product>;
+    cart?: Array<productsInCart>;
 };
 export type product = {
-    product: string | ProductI;
+    id: string | ProductI;
     amount: number;
     isBuy: boolean;
 };
@@ -21,6 +31,10 @@ export type UserI = {
     imageProfile: string;
     password: string;
     purchasedProducts: Array<product>;
-    favorites: Array<string>;
-    cart: Array<product>;
+    favorites: Array<ProductI>;
+    cart: Array<productsInCart>;
+};
+export type UserToken = {
+    user: UserI;
+    token: string;
 };

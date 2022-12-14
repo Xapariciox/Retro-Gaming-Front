@@ -20,7 +20,7 @@ describe('Given the instance of Product Service', () => {
     });
 
     describe('when we use get all', () => {
-        test('Then if all are OK, it should return a Promise of an Array of produts()', async () => {
+        test('Then if all are bad, it should return a error()', async () => {
             const response = {
                 ok: true,
                 json: jest.fn().mockRejectedValue([]),
@@ -29,6 +29,16 @@ describe('Given the instance of Product Service', () => {
             const result = await service.getAll();
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual([]);
+        });
+        test('Then if all are OK, it should return a Promise of an Array of produts()', async () => {
+            const response = {
+                ok: true,
+                json: jest.fn().mockResolvedValue([]),
+            };
+            global.fetch = jest.fn().mockResolvedValue(response);
+            const result = await service.getAll();
+            expect(fetch).toHaveBeenCalled();
+            expect(result).rejects;
         });
         test(`Then if there are problems, it should throw an error`, async () => {
             const response = {
