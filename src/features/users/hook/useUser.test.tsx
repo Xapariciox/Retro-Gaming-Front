@@ -2,8 +2,10 @@ import { renderHook } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import {
     mockStore,
+    productMock,
     userMock,
 } from '../../../infrastructure/mockStore/mockStore';
+import { mockStore2 } from '../../../infrastructure/mockStore/mockStore2';
 import { ProductI } from '../../products/types/products';
 import { ServiceUsers } from '../service/service-user';
 import { protoUser, UserI } from '../types/types';
@@ -62,20 +64,71 @@ describe('Given useUser', () => {
 
         expect(ServiceUsers.prototype.login).toHaveBeenCalled;
     });
-    // test('then should return a Promise of user favorites Updated', () => {
-    //     ServiceUsers.prototype.login = jest
-    //         .fn()
-    //         .mockResolvedValue({ userMock });
-    //     result.current.handleAddFavorites(productMock);
+    describe('when it has been run handleLogin and it has called handleAddFavorites', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
 
-    //     expect(ServiceUsers.prototype.addfavorites).toHaveBeenCalled;
-    // });
-    // test('then should return a error', () => {
-    //     ServiceUsers.prototype.login = jest
-    //         .fn()
-    //         .mockResolvedValue({ userMock });
-    //     result.current.handleAddFavorites(productMock);
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('then should return a error', () => {
+            ServiceUsers.prototype.addfavorites = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleAddFavorites(productMock);
 
-    //     expect(ServiceUsers.prototype.addfavorites).toHaveBeenCalled;
-    // });
+            expect(ServiceUsers.prototype.addfavorites).toHaveBeenCalled;
+        });
+        test('then should return a Promise of user favorites Updated', () => {
+            ServiceUsers.prototype.addfavorites = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() =>
+                result.current.handleAddFavorites({} as ProductI)
+            ).toThrow();
+        });
+    });
+    describe('when it has been run handleLogin and it has called handleDeletefavorites', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('then should return a error', () => {
+            ServiceUsers.prototype.deleteFavorites = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleDeleteFavorites(productMock);
+
+            expect(ServiceUsers.prototype.addfavorites).toHaveBeenCalled;
+        });
+        test('then should return a Promise of user favorites Updated', () => {
+            ServiceUsers.prototype.deleteFavorites = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() =>
+                result.current.handleDeleteFavorites({} as ProductI)
+            ).toThrow();
+        });
+    });
+    describe('when it has been run handleLogin and it has called handleDeleteAccount', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+
+        test('then should return user', () => {
+            ServiceUsers.prototype.deleteAccount = jest
+                .fn()
+                .mockResolvedValue({});
+            result.current.handleDeleteAccount();
+            expect(ServiceUsers.prototype.deleteAccount).toHaveBeenCalled();
+        });
+    });
 });

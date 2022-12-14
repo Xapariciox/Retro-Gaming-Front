@@ -4,27 +4,27 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { appStore } from '../../../infrastructure/store/store';
 import { mockStore } from '../../../infrastructure/mockStore/mockStore';
-import LoginPage from './loginPage';
+import RegisterPage from './registerPage';
 
 describe('Given LoginPage component', () => {
     describe('When we render the component LoginPage', () => {
-        test('Then it should display form of login', async () => {
+        test('Then it should display form of register', async () => {
             render(
                 <Router>
                     <Provider store={appStore}>
-                        <LoginPage />
+                        <RegisterPage />
                     </Provider>
                 </Router>
             );
-            const element = await screen.findByPlaceholderText(/Contraseña/i);
+            const element = await screen.findByPlaceholderText(/password/i);
             expect(element).toBeInTheDocument();
-            fireEvent.input(await screen.findByPlaceholderText('Contraseña'));
+            fireEvent.input(await screen.findByPlaceholderText('password'));
         });
         test('Then it should display of welcome', async () => {
             render(
                 <Router>
                     <Provider store={mockStore}>
-                        <LoginPage />
+                        <RegisterPage />
                     </Provider>
                 </Router>
             );
