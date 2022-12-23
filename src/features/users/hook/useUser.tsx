@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '../../../infrastructure/store/store';
 import { ServiceUsers } from '../service/service-user';
-import { protoUser } from '../types/types';
+import { productsInCart, protoUser } from '../types/types';
 import * as ac from '../reducer/action.creator';
 import { ProductI } from '../../products/types/products';
 
@@ -36,11 +36,17 @@ export const useUser = () => {
         repositoryUser.deleteAccount();
         dispatcher(ac.deleteAccount());
     };
+    const handleAddCart = (data: productsInCart) => {
+        console.log(data);
+        repositoryUser.addCart(data.id);
+        dispatcher(ac.addCart(data));
+    };
     return {
         user,
         handleLogin,
         handleAddFavorites,
         handleDeleteFavorites,
         handleDeleteAccount,
+        handleAddCart,
     };
 };

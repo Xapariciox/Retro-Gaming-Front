@@ -14,7 +14,7 @@ describe('Given the function userReducer', () => {
         favorites: [],
         cart: [
             {
-                id: 'hola',
+                id: 'hola' as unknown as ProductI,
                 amount: 2,
                 isBuy: true,
                 token: 'szzz',
@@ -197,7 +197,7 @@ describe('Given the function userReducer', () => {
             favorites: [{ id: '5' } as ProductI, { id: '2' } as ProductI],
             cart: [
                 {
-                    id: '2',
+                    id: '2' as unknown as ProductI,
                     amount: 2,
                     isBuy: true,
                     token: 'szzz',

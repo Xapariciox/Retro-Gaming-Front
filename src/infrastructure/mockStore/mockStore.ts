@@ -18,7 +18,16 @@ export const userMock = {
     favorites: [{ id: '2' }] as Array<ProductI>,
     cart: [
         {
-            id: 'hola',
+            id: {
+                name: '',
+                image: '',
+                date: '',
+                description: '',
+                stock: 2,
+                brand: '',
+                price: 3,
+                category: '',
+            },
             amount: 2,
             isBuy: true,
             token: 'szzz',

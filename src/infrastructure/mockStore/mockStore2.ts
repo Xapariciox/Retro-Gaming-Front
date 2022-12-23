@@ -39,7 +39,7 @@ export const productMock: ProductI = {
 };
 export const preloadedState: Partial<rootState> = {
     user: {
-        user: userMock as UserI,
+        user: userMock as unknown as UserI,
         token: 'token',
         isLogged: true,
         isLogging: false,

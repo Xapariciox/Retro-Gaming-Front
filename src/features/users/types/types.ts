@@ -1,6 +1,6 @@
 import { ProductI } from '../../products/types/products';
 export type productsInCart = {
-    id: string;
+    id: ProductI;
     amount: number;
     token: string;
     isBuy: boolean;

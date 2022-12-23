@@ -8,6 +8,7 @@ export function Menu() {
         { id: 4, path: 'consolesPage', label: 'Consoles' },
         { id: 5, path: 'favorites', label: 'favorites' },
         { id: 6, path: 'profile', label: 'Profile' },
+        { id: 7, path: 'cart', label: 'cart' },
     ];
     return (
         <>

@@ -6,6 +6,7 @@ import { HomePage } from '../homePage/home';
 import Profile from '../profile/profile';
 import SeccionConsoles from '../consolesPage/consolesSeccion';
 import Favorites from '../favorites/favorites';
+import Cart from '../cart/cart';
 
 export function AppRoutes() {
     return (
@@ -26,6 +27,7 @@ export function AppRoutes() {
                     element={<Favorites></Favorites>}
                 ></Route>
                 <Route path="profile" element={<Profile></Profile>}></Route>
+                <Route path="cart" element={<Cart></Cart>}></Route>
                 <Route path="*" element={<Navigate replace to="" />}></Route>
             </Routes>
         </>
