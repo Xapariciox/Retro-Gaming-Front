@@ -1,5 +1,13 @@
 import { ProductI } from '../../products/types/products';
 export type productsInCart = {
+    name?: string;
+    image?: string;
+    date?: string;
+    description?: string;
+    stock?: number;
+    brand?: string;
+    price?: number;
+    category?: string;
     id: ProductI;
     amount: number;
     token: string;

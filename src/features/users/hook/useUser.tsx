@@ -37,8 +37,7 @@ export const useUser = () => {
         dispatcher(ac.deleteAccount());
     };
     const handleAddCart = (data: productsInCart) => {
-        console.log(data);
-        repositoryUser.addCart(data.id);
+        repositoryUser.addCart(data as unknown as ProductI);
         dispatcher(ac.addCart(data));
     };
     return {
