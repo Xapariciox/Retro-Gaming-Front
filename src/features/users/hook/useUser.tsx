@@ -40,6 +40,15 @@ export const useUser = () => {
         repositoryUser.addCart(data.product);
         dispatcher(ac.addCart(data));
     };
+    const handleDeleteCart = (data: userCart) => {
+        repositoryUser.deleteCart(data.product);
+        dispatcher(ac.deleteCart(data));
+    };
+    const handleUpdateCart = (data: userCart) => {
+        console.log(data, 'HOOK');
+        repositoryUser.updateCart(data);
+        dispatcher(ac.editAmountCart(data));
+    };
     return {
         user,
         handleLogin,
@@ -47,5 +56,7 @@ export const useUser = () => {
         handleDeleteFavorites,
         handleDeleteAccount,
         handleAddCart,
+        handleDeleteCart,
+        handleUpdateCart,
     };
 };

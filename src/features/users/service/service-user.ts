@@ -1,5 +1,5 @@
 import { id } from './repository-interface';
-import { protoUser, UserI, UserToken } from '../types/types';
+import { protoUser, userCart, UserI, UserToken } from '../types/types';
 
 export class ServiceUsers {
     url: string;
@@ -132,7 +132,7 @@ export class ServiceUsers {
             });
         });
     }
-    updateCart(data: Partial<UserI>): Promise<UserI> {
+    updateCart(data: userCart): Promise<UserI> {
         return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),

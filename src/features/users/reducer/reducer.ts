@@ -47,18 +47,15 @@ export const userReducer = createReducer(initialState, (builder) => {
             favorites: [...(state.user as UserI).favorites, action.payload],
         },
     }));
-    // builder.addCase(ac.deleteCart, (state, action) => ({
-    //     ...state,
-    //     user: {
-    //         ...(state.user as UserI),
-    //         cart: (state.user as UserI).cart.filter(
-    //             (item) => item.product.id !== action.payload.
-    //         ),
-    //     },
-    //     token: action.payload.token,
-    //     isLogged: true,
-    //     isLogging: false,
-    // }));
+    builder.addCase(ac.deleteCart, (state, action) => ({
+        ...state,
+        user: {
+            ...(state.user as UserI),
+            cart: (state.user as UserI).cart.filter(
+                (item) => item.product.id !== action.payload.product.id
+            ),
+        },
+    }));
     builder.addCase(ac.favoritesDelete, (state, action) => ({
         ...state,
         user: {
@@ -78,20 +75,19 @@ export const userReducer = createReducer(initialState, (builder) => {
         isLogged: true,
         isLogging: false,
     }));
-    // builder.addCase(ac.editAmountCart, (state, action) => ({
-    //     ...state,
-    //     user: {
-    //         ...(state.user as UserI),
-    //         cart: (state.user as UserI).cart.map(
-    //             (
-    //                 item //Preguntar
-    //             ) => (item.id === action.payload.id ? action.payload : item)
-    //         ),
-    //     },
-    //     isLogged: false,
-    //     isLogging: false,
-    //     token: null,
-    // }));
+    builder.addCase(ac.editAmountCart, (state, action) => ({
+        ...state,
+        user: {
+            ...(state.user as UserI),
+            cart: [
+                ...(state.user as UserI).cart.map((item) =>
+                    item.amount !== action.payload.amount
+                        ? action.payload
+                        : item
+                ),
+            ],
+        },
+    }));
     builder.addCase(ac.deleteAccount, (state) => ({
         ...state,
         token: null,

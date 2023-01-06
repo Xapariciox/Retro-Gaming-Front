@@ -12,7 +12,12 @@ function ConsolesItem({ item }: { item: ProductI }) {
     };
     const handleClickCart = (ev: SyntheticEvent) => {
         ev.preventDefault();
-        handleAddCart({ isBuy: false, product: item });
+        handleAddCart({
+            isBuy: false,
+            product: item,
+            amount: 1,
+            id: item.id as string,
+        });
     };
 
     return (

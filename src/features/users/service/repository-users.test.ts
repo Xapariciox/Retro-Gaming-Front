@@ -1,4 +1,4 @@
-import { UserI } from '../types/types';
+import { userCart, UserI } from '../types/types';
 import { ServiceUsers } from './service-user';
 
 describe('Given the instance of Product Service', () => {
@@ -98,7 +98,9 @@ describe('Given the instance of Product Service', () => {
                 json: jest.fn().mockRejectedValue({}),
             };
             global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.updateCart(mockdata);
+            const result = await service.updateCart(
+                mockdata as unknown as userCart
+            );
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });
