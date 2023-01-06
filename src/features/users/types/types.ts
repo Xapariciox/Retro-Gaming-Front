@@ -50,5 +50,4 @@ export type userCart = {
     isBuy: boolean;
     product: ProductI;
     amount: number;
-    id: string;
 };

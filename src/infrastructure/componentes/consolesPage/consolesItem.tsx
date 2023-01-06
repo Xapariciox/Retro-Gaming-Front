@@ -16,7 +16,6 @@ function ConsolesItem({ item }: { item: ProductI }) {
             isBuy: false,
             product: item,
             amount: 1,
-            id: item.id as string,
         });
     };
 

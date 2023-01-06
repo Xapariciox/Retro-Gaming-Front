@@ -45,7 +45,6 @@ export const useUser = () => {
         dispatcher(ac.deleteCart(data));
     };
     const handleUpdateCart = (data: userCart) => {
-        console.log(data, 'HOOK');
         repositoryUser.updateCart(data);
         dispatcher(ac.editAmountCart(data));
     };

@@ -1,9 +1,24 @@
 import { useUser } from '../../../features/users/hook/useUser';
+import { userCart } from '../../../features/users/types/types';
 
 import style from './cart.module.css';
 
 function Cart() {
     const { user, handleDeleteCart, handleUpdateCart } = useUser();
+    const addProduct = (item: userCart) => {
+        const itemUpdated = {
+            amount: item.amount + 1,
+            isBuy: item.isBuy,
+            product: item.product,
+        };
+        handleUpdateCart(itemUpdated);
+    };
+    const substractProduct = (item: userCart) => {
+        const newItem = item;
+        newItem.amount = newItem.amount + 1;
+
+        handleUpdateCart(item);
+    };
     return (
         <>
             <div className={style.divCart}>
@@ -23,17 +38,11 @@ function Cart() {
                                         alt={item.product.name}
                                     />
                                 </div>
-                                <button
-                                    onClick={() =>
-                                        handleUpdateCart({
-                                            product: item.product,
-                                            amount: item.amount + 1,
-                                            isBuy: false,
-                                            id: item.product.id as string,
-                                        })
-                                    }
-                                >
+                                <button onClick={() => addProduct(item)}>
                                     +
+                                </button>
+                                <button onClick={() => substractProduct(item)}>
+                                    -
                                 </button>
                                 <div>{item.amount}</div>
                             </div>
