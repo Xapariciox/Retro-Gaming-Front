@@ -40,9 +40,13 @@ export type UserI = {
     password: string;
     purchasedProducts: Array<product>;
     favorites: Array<ProductI>;
-    cart: Array<productsInCart>;
+    cart: Array<userCart>;
 };
 export type UserToken = {
     user: UserI;
     token: string;
+};
+export type userCart = {
+    isBuy: boolean;
+    product: ProductI;
 };

@@ -2,7 +2,6 @@ import { SyntheticEvent } from 'react';
 import Swal from 'sweetalert2';
 import { ProductI } from '../../../features/products/types/products';
 import { useUser } from '../../../features/users/hook/useUser';
-import { productsInCart } from '../../../features/users/types/types';
 import style from './consolesItem.module.css';
 function ConsolesItem({ item }: { item: ProductI }) {
     const { handleAddFavorites, handleAddCart } = useUser();
@@ -13,7 +12,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
     };
     const handleClickCart = (ev: SyntheticEvent) => {
         ev.preventDefault();
-        handleAddCart(item as unknown as productsInCart);
+        handleAddCart({ isBuy: false, product: item });
     };
 
     return (
