@@ -14,10 +14,15 @@ function Cart() {
         handleUpdateCart(itemUpdated);
     };
     const substractProduct = (item: userCart) => {
-        const newItem = item;
-        newItem.amount = newItem.amount + 1;
-
-        handleUpdateCart(item);
+        if (item.amount === 1) {
+            return;
+        }
+        const itemUpdated = {
+            amount: item.amount - 1,
+            isBuy: item.isBuy,
+            product: item.product,
+        };
+        handleUpdateCart(itemUpdated);
     };
     return (
         <>

@@ -81,7 +81,8 @@ export const userReducer = createReducer(initialState, (builder) => {
             ...(state.user as UserI),
             cart: [
                 ...(state.user as UserI).cart.map((item) =>
-                    item.amount !== action.payload.amount
+                    item.amount !== action.payload.amount &&
+                    item.product.id === action.payload.product.id
                         ? action.payload
                         : item
                 ),
