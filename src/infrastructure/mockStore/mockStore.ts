@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { productReducer } from '../../features/products/reducer/reducer';
 import { ProductI } from '../../features/products/types/products';
 import { userReducer } from '../../features/users/reducer/reducer';
+import { userCart } from '../../features/users/types/types';
 import { rootState } from '../store/store';
 
 export const orderMock = {
@@ -61,3 +62,18 @@ export const mockStore = configureStore({
     },
     preloadedState,
 });
+export const UserCartMock: userCart = {
+    amount: 0,
+    isBuy: false,
+    product: {
+        id: '3',
+        name: 'pepe',
+        image: 'url',
+        date: '22-20-2022',
+        description: 'prueba',
+        stock: 1,
+        brand: 'prueba',
+        price: 2,
+        category: 'console',
+    },
+};

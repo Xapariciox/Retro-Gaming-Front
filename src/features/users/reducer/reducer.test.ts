@@ -153,7 +153,7 @@ describe('Given the function userReducer', () => {
     //     });
     // });
 
-    describe('When the action is update', () => {
+    describe('When the action is updateCart', () => {
         test('Then the returned state should be the original state and update the order', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
@@ -185,22 +185,21 @@ describe('Given the function userReducer', () => {
         test('Then the returned state should be the original state', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
-                payload: [
-                    {
-                        isBuy: false,
-                        product: {
-                            id: 'hola',
-                            name: 'pepe',
-                            image: '',
-                            brand: '',
-                            category: '',
-                            date: '',
-                            description: '',
-                            price: 0,
-                            stock: 5,
-                        },
+                payload: {
+                    amount: 1,
+                    isBuy: false,
+                    product: {
+                        id: 'hola',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
                     },
-                ],
+                },
             };
             state = state = {
                 user: userMock,
@@ -210,7 +209,7 @@ describe('Given the function userReducer', () => {
             };
 
             const result = userReducer(state, action);
-            expect(result.user?.cart).toEqual(action.payload);
+            expect(result.user?.cart[0]).toEqual(action.payload);
         });
     });
     describe('When the action is deletefavorites', () => {
