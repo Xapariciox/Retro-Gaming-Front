@@ -1,8 +1,13 @@
-# Proyecto Final Roberto
+# Ecomerce Retro Gaming
 
 ## Marketplace de artículos escritos (Referencia : (https://es.webuy.com)
 
 ### un e-comerce de Consolas y videojuegos Retro que solo el Propietario o la empresa propietaria pueda agregar productos para vender (se añadiran manualmente en el back) cada usuario podra agregar, eliminar y agregar una nota a sus favoritos habrán las siguientes páginas:
+
+## Esta Aplicacion se Desarrollo con las siguientes tecnologias: 
+
+### Desarrollado con React Con la Libreria Redux para un Intercambio de Datos mas ordenado, Api First Conectado a un BackEnd: https://github.com/isdi-coders-2022/Roberto_Sandoval_Back-Final-Project-202210-MAD ApiRest Testeado al 100% Con SonarCloud: https://sonarcloud.io/summary/overall?id=isdi-coders-2022_Roberto_Sandoval_Front-Final-Project-202210-MAD.
+
 
 ### Home:
 
