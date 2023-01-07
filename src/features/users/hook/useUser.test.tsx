@@ -93,7 +93,7 @@ describe('Given useUser', () => {
             ).toThrow();
         });
     });
-    describe('when it has been run handleLogin and it has called handleAddCart', () => {
+    describe('when it has been run app and it has called handleAddCart', () => {
         beforeEach(() => {
             const wrapper = ({ children }: { children: JSX.Element }) => (
                 <Provider store={mockStore2}>{children}</Provider>
@@ -101,7 +101,30 @@ describe('Given useUser', () => {
 
             ({ result } = renderHook(() => useUser(), { wrapper }));
         });
-        test('then should return a error', () => {
+        test('then return a error', () => {
+            ServiceUsers.prototype.addCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleAddCart(UserCartMock);
+
+            expect(ServiceUsers.prototype.addCart).toHaveBeenCalled;
+        });
+        test('then return cart updated', () => {
+            ServiceUsers.prototype.addCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() => result.current.handleAddCart({} as userCart));
+        });
+    });
+    describe('When the application starts without errors and we run handleddcart', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('then return a error add cart', () => {
             ServiceUsers.prototype.addCart = jest
                 .fn()
                 .mockResolvedValue({ userMock });
@@ -116,7 +139,7 @@ describe('Given useUser', () => {
             expect(() => result.current.handleAddCart({} as userCart));
         });
     });
-    describe('when it has been run handleLogin and it has called handleAddCart', () => {
+    describe('When the application starts without errors and we run handleEditAmount', () => {
         beforeEach(() => {
             const wrapper = ({ children }: { children: JSX.Element }) => (
                 <Provider store={mockStore2}>{children}</Provider>
@@ -124,30 +147,7 @@ describe('Given useUser', () => {
 
             ({ result } = renderHook(() => useUser(), { wrapper }));
         });
-        test('then should return a error', () => {
-            ServiceUsers.prototype.addCart = jest
-                .fn()
-                .mockResolvedValue({ userMock });
-            result.current.handleAddCart(UserCartMock);
-
-            expect(ServiceUsers.prototype.addCart).toHaveBeenCalled;
-        });
-        test('then should return a Promise of user Cart Updated', () => {
-            ServiceUsers.prototype.addCart = jest
-                .fn()
-                .mockResolvedValue({ userMock });
-            expect(() => result.current.handleAddCart({} as userCart));
-        });
-    });
-    describe('when it has been run handleLogin and it has called handleUpdateCart', () => {
-        beforeEach(() => {
-            const wrapper = ({ children }: { children: JSX.Element }) => (
-                <Provider store={mockStore2}>{children}</Provider>
-            );
-
-            ({ result } = renderHook(() => useUser(), { wrapper }));
-        });
-        test('then should return a error', () => {
+        test('When updateCart return a error ', () => {
             ServiceUsers.prototype.updateCart = jest
                 .fn()
                 .mockResolvedValue({ userMock });
