@@ -19,10 +19,19 @@ export const userMock = {
     favorites: [{ id: 'pepe', name: 'manio', image: 'url' }],
     cart: [
         {
-            id: 'hola',
             amount: 2,
             isBuy: true,
-            token: 'szzz',
+            product: {
+                id: '5',
+                name: 'alonso',
+                image: 'link',
+                brand: 'Gucci',
+                category: 'Game',
+                date: '20222',
+                description: 'Hello',
+                price: 9,
+                stock: 7,
+            },
         },
     ],
 };
@@ -39,7 +48,7 @@ export const productMock: ProductI = {
 };
 export const preloadedState: Partial<rootState> = {
     user: {
-        user: userMock as UserI,
+        user: userMock as unknown as UserI,
         token: 'token',
         isLogged: true,
         isLogging: false,

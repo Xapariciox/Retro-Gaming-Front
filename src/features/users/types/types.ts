@@ -1,6 +1,14 @@
 import { ProductI } from '../../products/types/products';
 export type productsInCart = {
-    id: string;
+    name?: string;
+    image?: string;
+    date?: string;
+    description?: string;
+    stock?: number;
+    brand?: string;
+    price?: number;
+    category?: string;
+    id: ProductI;
     amount: number;
     token: string;
     isBuy: boolean;
@@ -32,9 +40,14 @@ export type UserI = {
     password: string;
     purchasedProducts: Array<product>;
     favorites: Array<ProductI>;
-    cart: Array<productsInCart>;
+    cart: Array<userCart>;
 };
 export type UserToken = {
     user: UserI;
     token: string;
+};
+export type userCart = {
+    isBuy: boolean;
+    product: ProductI;
+    amount: number;
 };

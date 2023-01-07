@@ -2,11 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { productReducer } from '../../features/products/reducer/reducer';
 import { ProductI } from '../../features/products/types/products';
 import { userReducer } from '../../features/users/reducer/reducer';
+import { userCart } from '../../features/users/types/types';
 import { rootState } from '../store/store';
 
 export const orderMock = {
     productId: { name: 'mock' } as ProductI,
-    amount: 1,
+    amount: 0,
 };
 export const userMock = {
     name: 'pepe',
@@ -18,10 +19,19 @@ export const userMock = {
     favorites: [{ id: '2' }] as Array<ProductI>,
     cart: [
         {
-            id: 'hola',
-            amount: 2,
-            isBuy: true,
-            token: 'szzz',
+            amount: 0,
+            isBuy: false,
+            product: {
+                id: '2',
+                name: 'pepe',
+                image: 'ww',
+                brand: 'ss',
+                category: 'ss',
+                date: '2222',
+                description: 'ffse',
+                price: 0,
+                stock: 5,
+            },
         },
     ],
 };
@@ -52,3 +62,18 @@ export const mockStore = configureStore({
     },
     preloadedState,
 });
+export const UserCartMock: userCart = {
+    amount: 1,
+    isBuy: false,
+    product: {
+        id: '3',
+        name: 'julian',
+        image: 'link',
+        date: '2022',
+        description: 'P',
+        stock: 2,
+        brand: 'p',
+        price: 3,
+        category: 'conso',
+    },
+};

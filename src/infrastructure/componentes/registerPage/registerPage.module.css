@@ -12,9 +12,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: brown;
+    background-color: blue;
     min-height: 25rem;
     min-width: 30rem;
+    border-radius: 10px;
 }
 .letrasFormulario {
     font-size: 1.5rem;

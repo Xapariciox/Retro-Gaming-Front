@@ -6,7 +6,7 @@ function Favorites() {
     const { user } = useUser();
     return (
         <>
-            {/* <p>{user.user?.favorites}</p> */}
+            <h1>Favorites</h1>
             <ul className={style.ListConsoles}>
                 {user.user?.favorites.map((item) => (
                     <li className={style.itemConsole} key={item.id}>

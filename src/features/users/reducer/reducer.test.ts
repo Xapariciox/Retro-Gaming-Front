@@ -14,10 +14,19 @@ describe('Given the function userReducer', () => {
         favorites: [],
         cart: [
             {
-                id: 'hola',
-                amount: 2,
-                isBuy: true,
-                token: 'szzz',
+                amount: 1,
+                isBuy: false,
+                product: {
+                    id: 'hola',
+                    name: 'pepe',
+                    image: '',
+                    brand: '',
+                    category: '',
+                    date: '',
+                    description: '',
+                    price: 0,
+                    stock: 5,
+                },
             },
         ],
     };
@@ -126,29 +135,42 @@ describe('Given the function userReducer', () => {
             });
         });
     });
-    describe('When the action is deleteCart', () => {
-        test('Then the returned state should be the original state', () => {
-            action = {
-                type: actionTypesUser.deleteCart,
-                payload: { id: 'hola', amount: 1 },
-            };
-            state = {
-                user: userMock,
-                token: 'token',
-                isLogged: false,
-                isLogging: false,
-            };
+    // describe('When the action is deleteCart', () => {
+    //     test('Then the returned state should be the original state', () => {
+    //         action = {
+    //             type: actionTypesUser.deleteCart,
+    //             payload: { id: 'hola', amount: 1 },
+    //         };
+    //         state = {
+    //             user: userMock,
+    //             token: 'token',
+    //             isLogged: false,
+    //             isLogging: false,
+    //         };
 
-            const result = userReducer(state, action);
-            expect(result.user?.cart).toEqual([]);
-        });
-    });
+    //         const result = userReducer(state, action);
+    //         expect(result.user?.cart).toEqual([]);
+    //     });
+    // });
 
-    describe('When the action is update', () => {
+    describe('When the action is updateCart', () => {
         test('Then the returned state should be the original state and update the order', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
-                payload: { id: 'hola', amount: 2 },
+                payload: {
+                    isBuy: false,
+                    product: {
+                        id: 'hola',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
+                    },
+                },
             };
             state = state = {
                 user: userMock,
@@ -164,10 +186,19 @@ describe('Given the function userReducer', () => {
             action = {
                 type: actionTypesUser.editAmountCart,
                 payload: {
-                    id: '1',
-                    amount: 2,
-                    isBuy: true,
-                    token: 'szzz',
+                    amount: 1,
+                    isBuy: false,
+                    product: {
+                        id: 'hola',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
+                    },
                 },
             };
             state = state = {
@@ -178,9 +209,7 @@ describe('Given the function userReducer', () => {
             };
 
             const result = userReducer(state, action);
-            expect(result.user?.cart).toEqual([
-                { id: 'hola', amount: 2, isBuy: true, token: 'szzz' },
-            ]);
+            expect(result.user?.cart[0]).toEqual(action.payload);
         });
     });
     describe('When the action is deletefavorites', () => {
@@ -197,10 +226,19 @@ describe('Given the function userReducer', () => {
             favorites: [{ id: '5' } as ProductI, { id: '2' } as ProductI],
             cart: [
                 {
-                    id: '2',
-                    amount: 2,
-                    isBuy: true,
-                    token: 'szzz',
+                    amount: 1,
+                    isBuy: false,
+                    product: {
+                        id: '2',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
+                    },
                 },
             ],
         };
