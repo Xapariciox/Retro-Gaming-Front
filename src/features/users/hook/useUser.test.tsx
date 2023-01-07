@@ -28,6 +28,7 @@ describe('Given useUser', () => {
             handleDeleteAccount: () => void;
             handleAddCart: (data: userCart) => void;
             handleDeleteCart: (data: userCart) => void;
+            handleUpdateCart: (data: userCart) => void;
         };
     };
     beforeEach(() => {
@@ -113,6 +114,52 @@ describe('Given useUser', () => {
                 .fn()
                 .mockResolvedValue({ userMock });
             expect(() => result.current.handleAddCart({} as userCart));
+        });
+    });
+    describe('when it has been run handleLogin and it has called handleAddCart', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('then should return a error', () => {
+            ServiceUsers.prototype.addCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleAddCart(UserCartMock);
+
+            expect(ServiceUsers.prototype.addCart).toHaveBeenCalled;
+        });
+        test('then should return a Promise of user Cart Updated', () => {
+            ServiceUsers.prototype.addCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() => result.current.handleAddCart({} as userCart));
+        });
+    });
+    describe('when it has been run handleLogin and it has called handleUpdateCart', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('then should return a error', () => {
+            ServiceUsers.prototype.updateCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleUpdateCart(UserCartMock);
+
+            expect(ServiceUsers.prototype.updateCart).toHaveBeenCalled;
+        });
+        test('then should return a Promise of user Cart Updated', () => {
+            ServiceUsers.prototype.updateCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() => result.current.handleUpdateCart({} as userCart));
         });
     });
     describe('when it has been run handleLogin and it has called handleDeletefavorites', () => {

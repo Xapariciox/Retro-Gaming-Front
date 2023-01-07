@@ -7,7 +7,7 @@ import { rootState } from '../store/store';
 
 export const orderMock = {
     productId: { name: 'mock' } as ProductI,
-    amount: 1,
+    amount: 0,
 };
 export const userMock = {
     name: 'pepe',
@@ -19,7 +19,7 @@ export const userMock = {
     favorites: [{ id: '2' }] as Array<ProductI>,
     cart: [
         {
-            amount: 1,
+            amount: 0,
             isBuy: false,
             product: {
                 id: '3',
