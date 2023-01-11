@@ -38,7 +38,7 @@ export type UserI = {
     email: string;
     imageProfile: string;
     password: string;
-    purchasedProducts: Array<product>;
+    purchasedProducts: Array<userCart>;
     favorites: Array<ProductI>;
     cart: Array<userCart>;
 };

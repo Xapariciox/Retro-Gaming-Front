@@ -1,4 +1,4 @@
-import { productsInCart, userCart, UserToken } from '../types/types';
+import { userCart, UserToken } from '../types/types';
 import { createAction } from '@reduxjs/toolkit';
 import { actionTypesUser } from './action.types';
 import { ProductI } from '../../products/types/products';
@@ -13,7 +13,7 @@ export const deleteCart = createAction<userCart>(actionTypesUser.deleteCart);
 export const favoritesDelete = createAction<ProductI>(
     actionTypesUser.favoritesDelete
 );
-export const buyCart = createAction<productsInCart>(actionTypesUser.buyCart);
+export const buyCart = createAction<userCart>(actionTypesUser.buyCart);
 export const editAmountCart = createAction<userCart>(
     actionTypesUser.editAmountCart
 );

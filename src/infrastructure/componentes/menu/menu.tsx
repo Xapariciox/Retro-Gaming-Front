@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useUser } from '../../../features/users/hook/useUser';
 import style from './menu.module.css';
 export function Menu() {
+    const { user } = useUser();
     const Home = [
         { id: 1, path: '', label: 'Menu' },
         { id: 2, path: 'Register', label: 'Register' },
@@ -10,17 +12,39 @@ export function Menu() {
         { id: 6, path: 'profile', label: 'Profile' },
         { id: 7, path: 'cart', label: 'cart' },
     ];
+
     return (
         <>
-            <ul className={style.ulMenu}>
-                {Home.map((item) => (
-                    <li className={style.liMenu} key={item.id}>
-                        <Link className={style.linkMenu} to={item.path}>
-                            {item.label}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            {user.user ? (
+                <>
+                    <ul className={style.ulMenu}>
+                        {Home.map((item) => (
+                            <li className={style.liMenu} key={item.id}>
+                                <Link className={style.linkMenu} to={item.path}>
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                        <img
+                            width={'70px'}
+                            src={user.user.imageProfile}
+                            alt="Imagen Profile"
+                        />
+                    </ul>
+                </>
+            ) : (
+                <>
+                    <ul className={style.ulMenu}>
+                        {Home.map((item) => (
+                            <li className={style.liMenu} key={item.id}>
+                                <Link className={style.linkMenu} to={item.path}>
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
         </>
     );
 }

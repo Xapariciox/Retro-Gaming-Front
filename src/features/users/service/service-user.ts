@@ -147,7 +147,7 @@ export class ServiceUsers {
         });
     }
     buyCart(): Promise<UserI> {
-        return fetch(`${this.url}/deletecart`, {
+        return fetch(`${this.url}/buycart`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

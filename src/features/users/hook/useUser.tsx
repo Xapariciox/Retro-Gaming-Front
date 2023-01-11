@@ -48,6 +48,10 @@ export const useUser = () => {
         repositoryUser.updateCart(data);
         dispatcher(ac.editAmountCart(data));
     };
+    const handleBuyCart = (data: userCart) => {
+        repositoryUser.buyCart();
+        dispatcher(ac.buyCart(data as unknown as userCart));
+    };
     return {
         user,
         handleLogin,
@@ -57,5 +61,6 @@ export const useUser = () => {
         handleAddCart,
         handleDeleteCart,
         handleUpdateCart,
+        handleBuyCart,
     };
 };
