@@ -70,3 +70,8 @@
 .amount {
     font-size: 1.5rem;
 }
+.buy {
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}

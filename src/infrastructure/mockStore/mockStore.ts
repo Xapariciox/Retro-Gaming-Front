@@ -15,7 +15,23 @@ export const userMock = {
     id: '2',
     email: '@gmail.com',
     imageProfile: 'url',
-    purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
+    purchasedProducts: [
+        {
+            product: {
+                id: '2',
+                name: 'pepe',
+                image: 'ww',
+                brand: 'ss',
+                category: 'ss',
+                date: '2222',
+                description: 'ffse',
+                price: 0,
+                stock: 5,
+            },
+            amount: 2,
+            isBuy: true,
+        },
+    ],
     favorites: [{ id: '2' }] as Array<ProductI>,
     cart: [
         {

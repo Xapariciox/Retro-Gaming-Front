@@ -4,7 +4,8 @@ import { userCart } from '../../../features/users/types/types';
 import style from './cart.module.css';
 
 function Cart() {
-    const { user, handleDeleteCart, handleUpdateCart } = useUser();
+    const { user, handleDeleteCart, handleUpdateCart, handleBuyCart } =
+        useUser();
     const priceCart = () => {
         let price = 0;
         user.user?.cart.forEach(
@@ -77,6 +78,14 @@ function Cart() {
             <div className={style.total}>
                 <p className={style.totalIn}>Total</p>
                 <p>{priceCart()} €</p>
+                <button
+                    className={style.buy}
+                    onClick={() =>
+                        handleBuyCart(user.user?.cart as unknown as userCart)
+                    }
+                >
+                    Buy
+                </button>
             </div>
         </>
     );

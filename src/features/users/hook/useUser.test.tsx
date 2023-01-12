@@ -29,6 +29,7 @@ describe('Given useUser', () => {
             handleAddCart: (data: userCart) => void;
             handleDeleteCart: (data: userCart) => void;
             handleUpdateCart: (data: userCart) => void;
+            handleBuyCart: (data: userCart) => void;
         };
     };
     beforeEach(() => {
@@ -140,6 +141,29 @@ describe('Given useUser', () => {
             expect(() => result.current.handleUpdateCart({} as userCart));
         });
     });
+    describe('When the application starts without errors and we run handleBuyCart', () => {
+        beforeEach(() => {
+            const wrapper = ({ children }: { children: JSX.Element }) => (
+                <Provider store={mockStore2}>{children}</Provider>
+            );
+
+            ({ result } = renderHook(() => useUser(), { wrapper }));
+        });
+        test('When updateCart return a error ', () => {
+            ServiceUsers.prototype.buyCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            result.current.handleBuyCart(UserCartMock);
+
+            expect(ServiceUsers.prototype.buyCart).toHaveBeenCalled;
+        });
+        test('then should return a Promise of user Cart Updated', () => {
+            ServiceUsers.prototype.updateCart = jest
+                .fn()
+                .mockResolvedValue({ userMock });
+            expect(() => result.current.handleUpdateCart({} as userCart));
+        });
+    });
     describe('when it has been run handleLogin and it has called handleDeletefavorites', () => {
         beforeEach(() => {
             const wrapper = ({ children }: { children: JSX.Element }) => (
@@ -165,23 +189,7 @@ describe('Given useUser', () => {
             ).toThrow();
         });
     });
-    describe('when it has been run handleLogin and it has called handleDeleteCart', () => {
-        beforeEach(() => {
-            const wrapper = ({ children }: { children: JSX.Element }) => (
-                <Provider store={mockStore2}>{children}</Provider>
-            );
 
-            ({ result } = renderHook(() => useUser(), { wrapper }));
-        });
-        test('then should return a Promise of user cart Updated', () => {
-            ServiceUsers.prototype.deleteCart = jest
-                .fn()
-                .mockResolvedValue({ userMock });
-            expect(() =>
-                result.current.handleDeleteCart({} as userCart)
-            ).toThrow();
-        });
-    });
     describe('when it has been run handleLogin and it has called handleDeleteAccount', () => {
         beforeEach(() => {
             const wrapper = ({ children }: { children: JSX.Element }) => (

@@ -68,12 +68,14 @@ export const userReducer = createReducer(initialState, (builder) => {
     builder.addCase(ac.buyCart, (state, action) => ({
         ...state,
         user: {
-            ...(state.user as UserI), //Preguntar
+            ...(state.user as UserI),
+            purchasedProducts: [
+                ...(state.user as UserI).purchasedProducts.concat(
+                    action.payload
+                ),
+            ],
             cart: [],
         },
-        token: action.payload.token,
-        isLogged: true,
-        isLogging: false,
     }));
     builder.addCase(ac.editAmountCart, (state, action) => ({
         ...state,
