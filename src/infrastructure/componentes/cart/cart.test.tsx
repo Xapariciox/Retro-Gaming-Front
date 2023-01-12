@@ -21,6 +21,7 @@ describe('Given cart component', () => {
             userEvent.click(screen.getByText('+'));
             userEvent.click(screen.getByText('-'));
             userEvent.click(screen.getByText('❌'));
+            userEvent.click(screen.getByText('Buy'));
         });
     });
     describe('When we render the component cart', () => {

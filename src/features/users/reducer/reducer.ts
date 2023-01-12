@@ -65,21 +65,18 @@ export const userReducer = createReducer(initialState, (builder) => {
             ),
         },
     }));
-    builder.addCase(ac.buyCart, (state, action) => {
-        console.log(action.payload, 'action. payload');
-        return {
-            ...state,
-            user: {
-                ...(state.user as UserI),
-                purchasedProducts: [
-                    ...(state.user as UserI).purchasedProducts.concat(
-                        action.payload
-                    ),
-                ],
-                cart: [],
-            },
-        };
-    });
+    builder.addCase(ac.buyCart, (state, action) => ({
+        ...state,
+        user: {
+            ...(state.user as UserI),
+            purchasedProducts: [
+                ...(state.user as UserI).purchasedProducts.concat(
+                    action.payload
+                ),
+            ],
+            cart: [],
+        },
+    }));
     builder.addCase(ac.editAmountCart, (state, action) => ({
         ...state,
         user: {

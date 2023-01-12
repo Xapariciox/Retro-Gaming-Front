@@ -10,7 +10,23 @@ describe('Given the function userReducer', () => {
         id: '2',
         email: '@gmail.com',
         imageProfile: 'url',
-        purchasedProducts: [{ id: 'hola', amount: 2, isBuy: true }],
+        purchasedProducts: [
+            {
+                product: {
+                    id: '2',
+                    name: 'pepe',
+                    image: '',
+                    brand: '',
+                    category: '',
+                    date: '',
+                    description: '',
+                    price: 0,
+                    stock: 5,
+                },
+                amount: 2,
+                isBuy: true,
+            },
+        ],
         favorites: [],
         cart: [
             {
@@ -220,8 +236,36 @@ describe('Given the function userReducer', () => {
             email: '@gmail.com',
             imageProfile: 'url',
             purchasedProducts: [
-                { id: '6', amount: 2, isBuy: true },
-                { id: '2', amount: 2, isBuy: true },
+                {
+                    product: {
+                        id: '2',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
+                    },
+                    amount: 2,
+                    isBuy: true,
+                },
+                {
+                    product: {
+                        id: '2',
+                        name: 'pepe',
+                        image: '',
+                        brand: '',
+                        category: '',
+                        date: '',
+                        description: '',
+                        price: 0,
+                        stock: 5,
+                    },
+                    amount: 2,
+                    isBuy: true,
+                },
             ],
             favorites: [{ id: '5' } as ProductI, { id: '2' } as ProductI],
             cart: [
@@ -303,30 +347,10 @@ describe('Given the function userReducer', () => {
     describe('When the action is buyCart', () => {
         test('Then the returned state should be the original state', () => {
             action = {
-                type: actionTypesUser.buyCart,
-                payload: {
-                    user: null,
-                    token: null,
-                    isLogged: false,
-                    isLogging: false,
-                },
-            };
-            state = {
-                user: null,
-                token: null,
-                isLogged: false,
-                isLogging: false,
-            };
-
-            const result = userReducer(state, action);
-            expect(result.user).toEqual({ cart: [] });
-        });
-        test('Then the returned state should be the original state', () => {
-            action = {
                 type: '',
                 payload: {
-                    user: null,
-                    token: null,
+                    user: userMock,
+                    token: 'token',
                     isLogged: false,
                     isLogging: false,
                 },
