@@ -22,7 +22,7 @@ describe('Given LoginPage component', () => {
             userEvent.click(await screen.findByRole('button'));
         });
     });
-    describe('When we render the component ProfilePage but whit conditional', () => {
+    describe('When we render the component ProfilePage but whit conditionals', () => {
         test('then it should show the user profile', async () => {
             render(
                 <Router>
