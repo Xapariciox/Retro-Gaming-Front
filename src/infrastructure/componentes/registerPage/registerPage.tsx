@@ -35,7 +35,7 @@ function RegisterPage() {
                 onSubmit={handleRegisterSubmit}
                 className={style.formularioSubmit}
             >
-                <p className={style.letrasFormulario}>Formulario Register</p>
+                <p className={style.letrasFormulario}>Register</p>
                 <div className={style.formularioValores}>
                     <input
                         className={style.label}
@@ -53,7 +53,7 @@ function RegisterPage() {
                         name="email"
                         value={formState.email}
                         onInput={handleRegisterInput}
-                        placeholder="email"
+                        placeholder="Email"
                         required={true}
                         minLength={2}
                     />
@@ -80,8 +80,8 @@ function RegisterPage() {
                     Register
                 </button>
 
-                <Link className={style.letrasFormulario} to="/login">
-                    Are you registered? login now
+                <Link className={style.letrasRedirigir} to="/login">
+                    Are you registered?
                 </Link>
             </form>
         </div>

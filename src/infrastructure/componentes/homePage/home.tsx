@@ -3,7 +3,9 @@ import style from './home.module.css';
 export function HomePage() {
     return (
         <>
-            <div className={style.container}>
+            <h1>pagina en progreso</h1>
+
+            {/* <div className={style.container}>
                 <h1 className={style.h1}>
                     Adquiere las mejores consolas retro en Perfecto estado y
                     videojuegos de la mejor calidad
@@ -29,7 +31,7 @@ export function HomePage() {
                 <p className={style.p}>
                     Enterate de nuestro Stock ahora mismo!
                 </p>
-            </div>
+            </div> */}
         </>
     );
 }

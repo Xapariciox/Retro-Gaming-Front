@@ -1,5 +1,5 @@
 .ulMenu {
-    background-color: blue;
+    background-color: rgb(34, 34, 145);
     margin: 0;
     display: flex;
     min-height: 15vh;
@@ -11,9 +11,9 @@
 }
 .linkMenu {
     text-decoration: none;
-    background-color: black;
+    background-color: white;
     margin: padding;
-    color: #c3d4fb;
+    color: black;
     padding: 10px;
     border-radius: 10px;
 }

@@ -3,10 +3,14 @@ import { useUser } from '../../../features/users/hook/useUser';
 import style from './menu.module.css';
 export function Menu() {
     const { user } = useUser();
-    const Home = [
+    const home = [
         { id: 1, path: '', label: 'Menu' },
         { id: 2, path: 'Register', label: 'Register' },
         { id: 3, path: 'Login', label: 'Login' },
+        { id: 4, path: 'consolesPage', label: 'Consoles' },
+    ];
+    const homeLogin = [
+        { id: 1, path: '', label: 'Menu' },
         { id: 4, path: 'consolesPage', label: 'Consoles' },
         { id: 5, path: 'favorites', label: 'favorites' },
         { id: 6, path: 'profile', label: 'Profile' },
@@ -18,7 +22,7 @@ export function Menu() {
             {user.user ? (
                 <>
                     <ul className={style.ulMenu}>
-                        {Home.map((item) => (
+                        {homeLogin.map((item) => (
                             <li className={style.liMenu} key={item.id}>
                                 <Link className={style.linkMenu} to={item.path}>
                                     {item.label}
@@ -35,7 +39,7 @@ export function Menu() {
             ) : (
                 <>
                     <ul className={style.ulMenu}>
-                        {Home.map((item) => (
+                        {home.map((item) => (
                             <li className={style.liMenu} key={item.id}>
                                 <Link className={style.linkMenu} to={item.path}>
                                     {item.label}

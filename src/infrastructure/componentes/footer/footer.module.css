@@ -1,0 +1,9 @@
+footer {
+    background-color: rgb(34, 34, 145);
+    margin: 0;
+    display: flex;
+    min-height: 15vh;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+}

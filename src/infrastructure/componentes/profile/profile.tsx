@@ -41,6 +41,18 @@ function Profile() {
                 </>
             ) : (
                 <>
+                    <div className={style.containerButton}>
+                        <button
+                            className={style.button}
+                            onClick={() => handleDeleteAccount()}
+                        >
+                            delete Account
+                        </button>
+                        <a className={style.link} href="/login">
+                            logout
+                        </a>
+                    </div>
+                    <div></div>
                     <p>loading...</p>
                 </>
             )}

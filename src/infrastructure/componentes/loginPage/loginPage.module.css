@@ -12,15 +12,28 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+    background-color: rgb(34, 34, 145);
     min-height: 25rem;
     min-width: 30rem;
     border-radius: 10px;
 }
 .letrasFormulario {
-    font-size: 1.5rem;
-    color: black;
+    font-size: 2rem;
+    color: white;
     padding: 1rem;
+}
+
+.letrasRedirigir {
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: color 0.4s ease;
+    margin-bottom: 0.3rem;
+}
+.letrasRedirigir:hover {
+    border: solid 2px white;
+    border-radius: 3px;
 }
 .formularioValores {
     display: flex;
@@ -29,16 +42,28 @@
     padding: 1rem;
 }
 .button {
-    border-bottom: 1px solid #cccccc;
-    border-top: 2px solid #666666;
-    border-right: 1px solid #cccccc;
-    border-left: 2px solid #666666;
-    background-color: white;
-    padding: 1rem;
-    background-color: gray;
-    border-radius: 1rem;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    cursor: pointer;
 }
+.button:hover {
+    color: #1883ba;
+    background-color: #ffffff;
+}
+
 .label {
     margin: 3px;
     font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.label:placeholder {
+    border-style: solid;
+    border-color: orange;
 }
