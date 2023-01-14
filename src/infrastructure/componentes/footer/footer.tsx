@@ -4,10 +4,15 @@ export const Footer = () => {
         <>
             <footer className={style.footer}>
                 <p>Developed for Roberto Sandoval</p>
-                <p> Contact: </p>
-                <a href="https://www.linkedin.com/in/roberto-carlos-sandoval-aparicio/">
-                    Linkedin
-                </a>
+                <div className={style.div}>
+                    <a
+                        className={style.link}
+                        target="_blank"
+                        href="https://www.linkedin.com/in/roberto-carlos-sandoval-aparicio/"
+                    >
+                        Contact
+                    </a>
+                </div>
             </footer>
         </>
     );

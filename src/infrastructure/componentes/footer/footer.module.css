@@ -1,9 +1,22 @@
-footer {
+.footer {
     background-color: rgb(34, 34, 145);
     margin: 0;
     display: flex;
-    min-height: 15vh;
+    min-height: 10vh;
     align-items: center;
     justify-content: space-evenly;
     font-size: 1.5rem;
+    color: white;
+}
+.link {
+    text-decoration: none;
+    background-color: white;
+    margin: padding;
+    color: black;
+    padding: 5px;
+    border-radius: 10px;
+    transition: opacity 0.4s ease;
+}
+.link:hover {
+    opacity: 0.8;
 }
