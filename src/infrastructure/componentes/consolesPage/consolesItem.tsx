@@ -22,19 +22,13 @@ function ConsolesItem({ item }: { item: ProductI }) {
     return (
         <>
             <li key={item.id} className={style.itemConsole}>
-                <div className={style.divArcitulo}>
-                    <div>
-                        <div className={style.name}>{item.name}</div>
-                    </div>
-                    <button onClick={handleClick}>⭐</button>
-
-                    <div>
-                        <img className={style.imagen} src={item.image} />
-                        <button>
-                            <button onClick={handleClickCart}>addCart</button>
-                        </button>
-                    </div>
-                </div>
+                <img className={style.imagen} src={item.image} />
+                <button onClick={handleClick}>⭐</button>
+                <h1 className={style.name}>{item.name}</h1>
+                <p>{item.description}</p>
+                <button>
+                    <button onClick={handleClickCart}>addCart</button>
+                </button>
             </li>
         </>
     );

@@ -4,16 +4,14 @@ import style from './menu.module.css';
 export function Menu() {
     const { user } = useUser();
     const home = [
-        { id: 1, path: '', label: 'Menu' },
-        { id: 2, path: 'Register', label: 'Register' },
-        { id: 3, path: 'Login', label: 'Login' },
-        { id: 4, path: 'consolesPage', label: 'Consoles' },
+        { id: 1, path: 'Register', label: 'Register' },
+        { id: 2, path: 'Login', label: 'Login' },
+        { id: 3, path: 'consolesPage', label: 'Consoles' },
     ];
     const homeLogin = [
-        { id: 1, path: '', label: 'Menu' },
-        { id: 4, path: 'consolesPage', label: 'Consoles' },
-        { id: 5, path: 'favorites', label: 'favorites' },
-        { id: 6, path: 'profile', label: 'Profile' },
+        { id: 1, path: 'consolesPage', label: 'Consoles' },
+        { id: 2, path: 'favorites', label: 'favorites' },
+        { id: 3, path: 'profile', label: 'Profile' },
     ];
 
     return (
@@ -21,11 +19,13 @@ export function Menu() {
             {user.user ? (
                 <>
                     <ul className={style.ulMenu}>
-                        <img
-                            width={'70px'}
-                            src="../../../assets/logo.png"
-                            alt="menu/logo.png"
-                        />
+                        <Link to={''}>
+                            <img
+                                width={'70px'}
+                                src="../../../assets/logo.png"
+                                alt="menu/logo.png"
+                            />
+                        </Link>
                         {homeLogin.map((item) => (
                             <li className={style.liMenu} key={item.id}>
                                 <Link className={style.linkMenu} to={item.path}>
@@ -50,11 +50,13 @@ export function Menu() {
             ) : (
                 <>
                     <ul className={style.ulMenu}>
-                        <img
-                            width={'70px'}
-                            src="../../../assets/logo.png"
-                            alt="menu/logo.png"
-                        />
+                        <Link to={''}>
+                            <img
+                                width={'70px'}
+                                src="../../../assets/logo.png"
+                                alt="menu/logo.png"
+                            />
+                        </Link>
                         {home.map((item) => (
                             <li className={style.liMenu} key={item.id}>
                                 <Link className={style.linkMenu} to={item.path}>

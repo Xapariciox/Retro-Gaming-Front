@@ -1,23 +1,15 @@
-/* .itemConsole {
+.itemConsole {
+    list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-width: auto;
-    margin: 2rem;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    background-color: #efefef;
     flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
+    margin: 3px;
+    padding: 10px;
 }
 .imagen {
     width: 8rem;
 }
-.name {
-    padding: 1rem;
-}
-.divArticulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    width: 100%;
-} */

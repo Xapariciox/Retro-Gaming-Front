@@ -1,5 +1,7 @@
-/* .ListConsoles {
+.ListConsoles {
     display: flex;
     justify-content: center;
-    align-items: center;
-} */
+    align-items: flex-start;
+    height: 100vh;
+    flex-wrap: wrap;
+}

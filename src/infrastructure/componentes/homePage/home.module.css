@@ -1,27 +1,7 @@
-.h1 {
-    margin: 0;
-    align-content: center;
-    justify-content: end;
-    font-size: 3rem;
-}
 .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 10px;
-}
-.image {
-    width: 30rem;
-    border-radius: 2px;
-    max-width: 380px;
-}
-.p {
-    font-size: 2rem;
-}
-.containerTotal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 78vh;
+    background-image: url('../../../../public/assets/home.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
