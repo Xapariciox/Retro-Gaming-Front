@@ -8,23 +8,30 @@ function Favorites() {
         <>
             <h1>Favorites</h1>
             <ul className={style.ListConsoles}>
-                {user.user?.favorites.map((item) => (
-                    <li className={style.itemConsole} key={item.id}>
-                        <div className={style.divArcitulo}>
-                            <div>{item.name}</div>
-                            <button onClick={() => handleDeleteFavorites(item)}>
-                                ❌
-                            </button>
-                            <div>
+                <div className={style.containerConsoles}>
+                    {user.user?.favorites.map((item) => (
+                        <li key={item.id} className={style.itemConsole}>
+                            <p> Stock Restante: {item.stock}</p>
+                            <div className={style.imagendiv}>
                                 <img
                                     className={style.imagen}
                                     src={item.image}
-                                    alt={item.name}
                                 />
+                                <button
+                                    onClick={() => handleDeleteFavorites(item)}
+                                >
+                                    ❌
+                                </button>
                             </div>
-                        </div>
-                    </li>
-                ))}
+
+                            <h1 className={style.name}>{item.name}</h1>
+                            <div>
+                                <h2>Descripcion</h2>
+                                <p>{item.description}</p>
+                            </div>
+                        </li>
+                    ))}
+                </div>
             </ul>
         </>
     );

@@ -8,7 +8,11 @@ function ConsolesItem({ item }: { item: ProductI }) {
     const handleClick = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleAddFavorites(item);
-        Swal.fire(`Felicidades! `, `Aacabas de añadir ${item.name}`, 'success');
+        Swal.fire(
+            `Congratulations! `,
+            `you have just successfully added ${item.name}`,
+            'success'
+        );
     };
     const handleClickLogout = () => {
         Swal.fire(
@@ -18,9 +22,14 @@ function ConsolesItem({ item }: { item: ProductI }) {
         );
     };
     const handleClickCart = (ev: SyntheticEvent) => {
+        Swal.fire(
+            `Succes `,
+            `you have just successfully added ${item.name} to your cart`,
+            'success'
+        );
         ev.preventDefault();
         handleAddCart({
-            isBuy: false,
+            isBuy: true,
             product: item,
             amount: 1,
         });
@@ -37,6 +46,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
                     </div>
 
                     <h1 className={style.name}>{item.name}</h1>
+                    <h1>{item.price} €</h1>
                     <div>
                         <h2>Descripcion</h2>
                         <p>{item.description}</p>

@@ -1,34 +1,47 @@
-.itemConsole {
+.listConsoles {
+    height: 100vh;
+    width: 100vw;
+}
+.containerConsoles {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-width: auto;
-    margin: 2rem;
+    align-items: initial;
     flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
 }
-.imagen {
-    width: 8rem;
-}
-.name {
-    padding: 1rem;
-}
-.divArticulo {
+
+.itemConsole {
+    list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    width: 100%;
-}
-.ListConsoles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.divFavorites {
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    min-width: 400px;
+    min-height: 400px;
+    background-color: #efefef;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
     flex-direction: column;
-    align-items: center;
+    background-color: rgb(136, 133, 135);
+}
+.itemConsole * {
+    padding: 5px;
+}
+
+.imagen {
+    width: 15rem;
+    height: 15rem;
+    max-height: 9rem;
+}
+.imagendiv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-width: 70%;
+    min-height: 40%;
+}
+h1 {
+    text-align: center;
+    padding: 5px;
 }
