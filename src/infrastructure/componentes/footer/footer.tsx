@@ -10,7 +10,7 @@ export const Footer = () => {
                         target="_blank"
                         href="https://www.linkedin.com/in/roberto-carlos-sandoval-aparicio/"
                     >
-                        Contact
+                        Contact Us
                     </a>
                 </div>
             </footer>

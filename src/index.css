@@ -12,6 +12,10 @@ body {
     background-color: #ffffff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
         sans-serif;
-    min-height: 592px;
-    min-width: 400px;
+    min-height: 100vh;
+}
+#root {
+    position: relative;
+    padding-bottom: 11vh;
+    min-height: 100vh;
 }

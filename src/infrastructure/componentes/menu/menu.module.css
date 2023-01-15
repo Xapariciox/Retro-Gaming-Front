@@ -4,10 +4,22 @@
     display: flex;
     min-height: 12vh;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 1.5rem;
     list-style: none;
     text-decoration: none;
+    padding: 8px;
+    width: 100vw;
+}
+.nav {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+    min-width: 50vw;
 }
 .linkMenu {
     text-decoration: none;
@@ -22,6 +34,7 @@
 .linkMenu:hover {
     opacity: 0.8;
 }
-.liMenu {
+.liMenu * {
     min-width: 20px;
+    padding: 10px;
 }

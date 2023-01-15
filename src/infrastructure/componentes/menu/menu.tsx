@@ -10,7 +10,7 @@ export function Menu() {
     ];
     const homeLogin = [
         { id: 1, path: 'consolesPage', label: 'Consoles' },
-        { id: 2, path: 'favorites', label: 'favorites' },
+        { id: 2, path: 'favorites', label: 'Favorites' },
         { id: 3, path: 'profile', label: 'Profile' },
     ];
 
@@ -21,18 +21,25 @@ export function Menu() {
                     <ul className={style.ulMenu}>
                         <Link to={''}>
                             <img
+                                className={style.logo}
                                 width={'70px'}
                                 src="../../../assets/logo.png"
                                 alt="menu/logo.png"
                             />
                         </Link>
-                        {homeLogin.map((item) => (
-                            <li className={style.liMenu} key={item.id}>
-                                <Link className={style.linkMenu} to={item.path}>
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
+                        <nav className={style.nav}>
+                            {homeLogin.map((item) => (
+                                <li className={style.liMenu} key={item.id}>
+                                    <Link
+                                        className={style.linkMenu}
+                                        to={item.path}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </nav>
+
                         <Link to={'cart'}>
                             <img
                                 width={'70px'}
@@ -64,6 +71,7 @@ export function Menu() {
                                 </Link>
                             </li>
                         ))}
+                        <div></div>
                     </ul>
                 </>
             )}

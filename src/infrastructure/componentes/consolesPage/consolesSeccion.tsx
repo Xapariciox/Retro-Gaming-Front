@@ -6,9 +6,11 @@ function SeccionConsoles() {
     return (
         <>
             <ul className={style.ListConsoles}>
-                {products.map((item) => (
-                    <ConsolesItem key={item.id} item={item}></ConsolesItem>
-                ))}
+                <div className={style.containerConsoles}>
+                    {products.map((item) => (
+                        <ConsolesItem key={item.id} item={item}></ConsolesItem>
+                    ))}
+                </div>
             </ul>
         </>
     );
