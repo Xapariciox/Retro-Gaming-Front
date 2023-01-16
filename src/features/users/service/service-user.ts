@@ -4,7 +4,8 @@ import { protoUser, userCart, UserI, UserToken } from '../types/types';
 export class ServiceUsers {
     url: string;
     constructor() {
-        this.url = 'http://localhost:7700/users';
+        this.url =
+            'https://retro-gaming-backend-production.up.railway.app/users';
     }
     login(user: Partial<protoUser>): Promise<UserToken> {
         return fetch(`${this.url}/login`, {
