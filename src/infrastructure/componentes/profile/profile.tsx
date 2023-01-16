@@ -20,7 +20,7 @@ function Profile() {
             }
         });
     };
-    const onClicDeleteAccount = () => {
+    const onClick2 = () => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -31,11 +31,7 @@ function Profile() {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'your account was successfully deleted.',
-                    'success'
-                );
+                Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
                 handleDeleteAccount();
             }
         });
@@ -52,9 +48,9 @@ function Profile() {
                             </a>
                             <button
                                 className={style.button}
-                                onClick={() => onClicDeleteAccount()}
+                                onClick={() => onClick2()}
                             >
-                                delete Account
+                                Delete Account
                             </button>
                         </div>
                         <div className={style.deletePurchasedProduct}>
