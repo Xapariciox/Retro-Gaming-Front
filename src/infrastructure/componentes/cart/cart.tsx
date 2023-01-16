@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { useUser } from '../../../features/users/hook/useUser';
 import { userCart } from '../../../features/users/types/types';
 
@@ -32,6 +33,19 @@ function Cart() {
         };
         handleUpdateCart(itemUpdated);
     };
+    const amountCart = () => {
+        let amount = 0;
+        user.user?.cart.forEach((item) => (amount += item.amount));
+        return amount;
+    };
+    const buyCart = () => {
+        Swal.fire(
+            `Congratulations! `,
+            `You have just successfully purchased ${amountCart()} items `,
+            'success'
+        );
+        handleBuyCart(user.user?.cart as unknown as userCart);
+    };
     return (
         <>
             <div className={style.divCart}>
@@ -63,7 +77,7 @@ function Cart() {
                                     +
                                 </button>
                             </div>
-                            <p>{item.product.price}€</p>
+                            <p>{item.product.price * item.amount}€</p>
                             <button
                                 className={style.button}
                                 onClick={() => handleDeleteCart(item)}
@@ -77,12 +91,7 @@ function Cart() {
             <div className={style.total}>
                 <p className={style.totalIn}>Total</p>
                 <p>{priceCart()} €</p>
-                <button
-                    className={style.buy}
-                    onClick={() =>
-                        handleBuyCart(user.user?.cart as unknown as userCart)
-                    }
-                >
+                <button className={style.buy} onClick={() => buyCart()}>
                     Buy
                 </button>
             </div>

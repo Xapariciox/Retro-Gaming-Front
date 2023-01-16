@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-
 import { UserI } from '../types/types';
 import * as ac from './action.creator';
 
@@ -23,13 +22,6 @@ export const userReducer = createReducer(initialState, (builder) => {
         token: action.payload.token,
         user: action.payload.user,
         isLogged: true,
-        isLogging: false,
-    }));
-    builder.addCase(ac.logoutFinish, (state) => ({
-        ...state,
-        token: null,
-        user: null,
-        isLogged: false,
         isLogging: false,
     }));
 
@@ -99,6 +91,13 @@ export const userReducer = createReducer(initialState, (builder) => {
         },
     }));
     builder.addCase(ac.deleteAccount, (state) => ({
+        ...state,
+        token: null,
+        user: null,
+        isLogged: false,
+        isLogging: false,
+    }));
+    builder.addCase(ac.logoutFinish, (state) => ({
         ...state,
         token: null,
         user: null,
