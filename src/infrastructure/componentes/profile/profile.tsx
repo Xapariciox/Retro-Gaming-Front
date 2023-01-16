@@ -31,7 +31,11 @@ function Profile() {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+                Swal.fire(
+                    'Deleted!',
+                    'your account has been successfully deleted.',
+                    'success'
+                );
                 handleDeleteAccount();
             }
         });
@@ -94,9 +98,9 @@ function Profile() {
                                 </a>
                                 <button
                                     className={style.button}
-                                    onClick={() => handleDeleteAccount()}
+                                    onClick={() => onClick2()}
                                 >
-                                    delete Account
+                                    Delete Account
                                 </button>
                             </div>
 
