@@ -18,6 +18,7 @@ export const useUser = () => {
             if (response.token) localStorage.setItem('token', response.token);
         });
     };
+
     const handleAddFavorites = (data: ProductI) => {
         if (!data.id) {
             throw new Error();
@@ -35,6 +36,9 @@ export const useUser = () => {
     const handleDeleteAccount = () => {
         repositoryUser.deleteAccount();
         dispatcher(ac.deleteAccount());
+    };
+    const handleLogoutFinish = () => {
+        dispatcher(ac.logoutFinish());
     };
     const handleAddCart = (data: userCart) => {
         repositoryUser.addCart(data.product);
@@ -67,5 +71,6 @@ export const useUser = () => {
         handleUpdateCart,
         handleBuyCart,
         handleSDeletePurchasedProducts,
+        handleLogoutFinish,
     };
 };

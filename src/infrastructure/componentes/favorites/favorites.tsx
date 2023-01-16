@@ -25,10 +25,6 @@ function Favorites() {
                             </div>
 
                             <h1 className={style.name}>{item.name}</h1>
-                            <div>
-                                <h2>Descripcion</h2>
-                                <p>{item.description}</p>
-                            </div>
                         </li>
                     ))}
                 </div>

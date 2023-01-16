@@ -1,9 +1,15 @@
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './profile.module.css';
 function Profile() {
-    const { handleDeleteAccount, user, handleSDeletePurchasedProducts } =
-        useUser();
+    const navigate = useNavigate();
+    const {
+        handleDeleteAccount,
+        user,
+        handleSDeletePurchasedProducts,
+        handleLogoutFinish,
+    } = useUser();
     const onClick = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -36,6 +42,7 @@ function Profile() {
                     'your account has been successfully deleted.',
                     'success'
                 );
+                navigate('/register');
                 handleDeleteAccount();
             }
         });
@@ -47,9 +54,12 @@ function Profile() {
                     <div className={style.containerTotal}>
                         <h1>Account management</h1>
                         <div className={style.containerButton}>
-                            <a className={style.link} href="/login">
-                                logout
-                            </a>
+                            <Link
+                                onClick={() => handleLogoutFinish()}
+                                to={'login'}
+                            >
+                                <button className={style.link}>logout</button>
+                            </Link>
                             <button
                                 className={style.button}
                                 onClick={() => onClick2()}
@@ -78,7 +88,7 @@ function Profile() {
                                             {item.amount}
                                         </p>
                                         <p>
-                                            total:{' '}
+                                            total:
                                             {item.amount * item.product.price}€
                                         </p>
                                     </li>
@@ -93,9 +103,14 @@ function Profile() {
                         <div className={style.containerTotal}>
                             <h1>Account management</h1>
                             <div className={style.containerButton}>
-                                <a className={style.link} href="/login">
-                                    logout
-                                </a>
+                                <Link
+                                    onClick={() => handleLogoutFinish()}
+                                    to={'login'}
+                                >
+                                    <button className={style.link}>
+                                        logout
+                                    </button>
+                                </Link>
                                 <button
                                     className={style.button}
                                     onClick={() => onClick2()}

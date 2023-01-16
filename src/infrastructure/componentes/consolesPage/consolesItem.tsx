@@ -16,7 +16,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
     };
     const handleClickLogout = () => {
         Swal.fire(
-            `Registrate `,
+            `Please resgister `,
             `To perform this option, please login`,
             'error'
         );
@@ -47,10 +47,6 @@ function ConsolesItem({ item }: { item: ProductI }) {
 
                     <h1 className={style.name}>{item.name}</h1>
                     <h1 className={style.price}>{item.price} €</h1>
-                    <div>
-                        <h2>Descripcion</h2>
-                        <p>{item.description}</p>
-                    </div>
 
                     <button className={style.cart} onClick={handleClickCart}>
                         🛒
@@ -66,10 +62,6 @@ function ConsolesItem({ item }: { item: ProductI }) {
 
                     <h1 className={style.name}>{item.name}</h1>
                     <h1 className={style.price}>{item.price} €</h1>
-                    <div>
-                        <h2>Descripcion</h2>
-                        <p>{item.description}</p>
-                    </div>
                 </li>
             )}
         </>

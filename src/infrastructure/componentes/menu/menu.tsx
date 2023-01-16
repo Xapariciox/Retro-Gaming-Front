@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './menu.module.css';
 export function Menu() {
-    const { user } = useUser();
+    const { user, handleLogoutFinish } = useUser();
     const home = [
         { id: 1, path: 'Register', label: 'Register' },
         { id: 2, path: 'Login', label: 'Login' },
@@ -18,75 +18,123 @@ export function Menu() {
         <>
             {user.user ? (
                 <>
-                    <ul className={style.ulMenu}>
-                        <Link to={''}>
-                            <img
-                                className={style.logo}
-                                width={'70px'}
-                                src="../../../assets/logo.png"
-                                alt="menu/logo.png"
-                            />
-                        </Link>
-                        <nav className={style.nav}>
-                            {homeLogin.map((item) => (
-                                <li className={style.liMenu} key={item.id}>
-                                    <Link
-                                        className={style.linkMenu}
-                                        to={item.path}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </nav>
-
-                        <Link to={'cart'}>
-                            <img
-                                width={'70px'}
-                                src="../../../assets/cart.png"
-                                alt="cart"
-                            />
-                        </Link>
-                        <div className={style.logout}>
-                            <Link to={'profile'}>
+                    {user.user.imageProfile ? (
+                        <ul className={style.ulMenu}>
+                            <Link to={''}>
                                 <img
+                                    className={style.logo}
                                     width={'70px'}
-                                    src={user.user.imageProfile}
-                                    alt="Imagen Profile"
+                                    src="../../../assets/logo.png"
+                                    alt="menu/logo.png"
                                 />
                             </Link>
-                            <a className={style.link} href="/login">
+                            <nav className={style.nav}>
+                                {homeLogin.map((item) => (
+                                    <li className={style.liMenu} key={item.id}>
+                                        <Link
+                                            className={style.linkMenu}
+                                            to={item.path}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </nav>
+
+                            <Link to={'cart'}>
                                 <img
-                                    width={'50px'}
-                                    src="../../../assets/logout.png"
+                                    width={'70px'}
+                                    src="../../../assets/cart.png"
                                     alt="cart"
                                 />
-                            </a>
-                        </div>
-                    </ul>
+                            </Link>
+                            <div className={style.logout}>
+                                <Link to={'profile'}>
+                                    <img
+                                        className={style.imagenProfile}
+                                        width={'70px'}
+                                        src={user.user.imageProfile}
+                                        alt="Imagen Profile"
+                                    />
+                                </Link>
+                                <Link
+                                    onClick={() => handleLogoutFinish()}
+                                    to={'login'}
+                                >
+                                    <img
+                                        width={'50px'}
+                                        src="../../../assets/logout.png"
+                                        alt="logout"
+                                    />
+                                </Link>
+                            </div>
+                        </ul>
+                    ) : (
+                        <ul className={style.ulMenu}>
+                            <Link to={''}>
+                                <img
+                                    className={style.logo}
+                                    width={'70px'}
+                                    src="../../../assets/logo.png"
+                                    alt="menu/logo.png"
+                                />
+                            </Link>
+                            <nav className={style.nav}>
+                                {homeLogin.map((item) => (
+                                    <li className={style.liMenu} key={item.id}>
+                                        <Link
+                                            className={style.linkMenu}
+                                            to={item.path}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </nav>
+
+                            <Link to={'cart'}>
+                                <img
+                                    width={'70px'}
+                                    src="../../../assets/cart.png"
+                                    alt="cart"
+                                />
+                            </Link>
+                            <div className={style.logout}>
+                                <Link
+                                    onClick={() => handleLogoutFinish()}
+                                    to={'login'}
+                                >
+                                    <img
+                                        width={'50px'}
+                                        src="../../../assets/logout.png"
+                                        alt="logout"
+                                    />
+                                </Link>
+                            </div>
+                        </ul>
+                    )}
                 </>
             ) : (
-                <>
-                    <ul className={style.ulMenu}>
-                        <Link to={''}>
-                            <img
-                                width={'70px'}
-                                src="../../../assets/logo.png"
-                                alt="menu/logo.png"
-                            />
-                        </Link>
-                        {home.map((item) => (
-                            <li className={style.liMenu} key={item.id}>
-                                <Link className={style.linkMenu} to={item.path}>
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                        <div></div>
-                    </ul>
-                </>
+                <ul className={style.ulMenu}>
+                    <Link to={''}>
+                        <img
+                            width={'70px'}
+                            src="../../../assets/logo.png"
+                            alt="menu/logo.png"
+                        />
+                    </Link>
+                    {home.map((item) => (
+                        <li className={style.liMenu} key={item.id}>
+                            <Link className={style.linkMenu} to={item.path}>
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                    <div></div>
+                </ul>
             )}
         </>
     );
 }
+
 export default Menu;
