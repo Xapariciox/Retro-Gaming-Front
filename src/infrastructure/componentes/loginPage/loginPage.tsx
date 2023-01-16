@@ -35,7 +35,7 @@ function LoginPage() {
                 onSubmit={handleLoginSubmit}
                 className={style.formularioSubmit}
             >
-                <p className={style.letrasFormulario}>Formulario Login</p>
+                <p className={style.letrasFormulario}>Login</p>
                 <div className={style.formularioValores}>
                     <input
                         className={style.label}
@@ -62,8 +62,8 @@ function LoginPage() {
                     Login
                 </button>
 
-                <Link className={style.letrasFormulario} to="/register">
-                    Are you not registered? register now
+                <Link className={style.letrasRedirigir} to="/register">
+                    Are you not registered?
                 </Link>
             </form>
         </div>

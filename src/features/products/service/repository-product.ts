@@ -4,7 +4,9 @@ import { RepositoryProducts } from './repository-interface';
 
 export class ServiceProducts implements RepositoryProducts {
     url: string;
-    constructor(url = 'http://localhost:7700/products') {
+    constructor(
+        url = 'https://retro-gaming-backend-production.up.railway.app/products'
+    ) {
         this.url = url;
     }
 

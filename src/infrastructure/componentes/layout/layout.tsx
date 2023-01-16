@@ -1,3 +1,4 @@
+import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
 
 export function Layout({ children }: { children: JSX.Element }) {
@@ -5,6 +6,7 @@ export function Layout({ children }: { children: JSX.Element }) {
         <>
             <Header></Header>
             {children}
+            <Footer></Footer>
         </>
     );
 }

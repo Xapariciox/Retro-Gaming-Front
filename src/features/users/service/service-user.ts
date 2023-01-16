@@ -4,7 +4,8 @@ import { protoUser, userCart, UserI, UserToken } from '../types/types';
 export class ServiceUsers {
     url: string;
     constructor() {
-        this.url = 'http://localhost:7700/users';
+        this.url =
+            'https://retro-gaming-backend-production.up.railway.app/users';
     }
     login(user: Partial<protoUser>): Promise<UserToken> {
         return fetch(`${this.url}/login`, {
@@ -122,6 +123,19 @@ export class ServiceUsers {
         return fetch(`${this.url}/deletecart`, {
             method: 'PATCH',
             body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }).then((response) => {
+            return response.json().catch((error: Error) => {
+                return error;
+            });
+        });
+    }
+    deletePurchasedProducts(): Promise<id> {
+        return fetch(`${this.url}/deletePurchasedProducts`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

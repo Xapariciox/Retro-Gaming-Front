@@ -4,16 +4,32 @@ import { ProductI } from '../../../features/products/types/products';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './consolesItem.module.css';
 function ConsolesItem({ item }: { item: ProductI }) {
-    const { handleAddFavorites, handleAddCart } = useUser();
+    const { handleAddFavorites, handleAddCart, user } = useUser();
     const handleClick = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleAddFavorites(item);
-        Swal.fire(`Felicidades! `, `Aacabas de añadir ${item.name}`, 'success');
+        Swal.fire(
+            `Congratulations! `,
+            `you have just successfully added ${item.name}`,
+            'success'
+        );
+    };
+    const handleClickLogout = () => {
+        Swal.fire(
+            `Registrate `,
+            `To perform this option, please login`,
+            'error'
+        );
     };
     const handleClickCart = (ev: SyntheticEvent) => {
+        Swal.fire(
+            `Succes `,
+            `you have just successfully added "${item.name}" to your cart`,
+            'success'
+        );
         ev.preventDefault();
         handleAddCart({
-            isBuy: false,
+            isBuy: true,
             product: item,
             amount: 1,
         });
@@ -21,21 +37,41 @@ function ConsolesItem({ item }: { item: ProductI }) {
 
     return (
         <>
-            <li key={item.id} className={style.itemConsole}>
-                <div className={style.divArcitulo}>
-                    <div>
-                        <div className={style.name}>{item.name}</div>
-                    </div>
-                    <button onClick={handleClick}>⭐</button>
-
-                    <div>
+            {user.user ? (
+                <li key={item.id} className={style.itemConsole}>
+                    <p> Stock Restante: {item.stock}</p>
+                    <div className={style.imagendiv}>
                         <img className={style.imagen} src={item.image} />
-                        <button>
-                            <button onClick={handleClickCart}>addCart</button>
-                        </button>
+                        <button onClick={handleClick}>💖</button>
                     </div>
-                </div>
-            </li>
+
+                    <h1 className={style.name}>{item.name}</h1>
+                    <h1 className={style.price}>{item.price} €</h1>
+                    <div>
+                        <h2>Descripcion</h2>
+                        <p>{item.description}</p>
+                    </div>
+
+                    <button className={style.cart} onClick={handleClickCart}>
+                        🛒
+                    </button>
+                </li>
+            ) : (
+                <li key={item.id} className={style.itemConsole}>
+                    <p> Stock Restante: {item.stock}</p>
+                    <div className={style.imagendiv}>
+                        <img className={style.imagen} src={item.image} />
+                        <button onClick={handleClickLogout}>💖</button>
+                    </div>
+
+                    <h1 className={style.name}>{item.name}</h1>
+                    <h1 className={style.price}>{item.price} €</h1>
+                    <div>
+                        <h2>Descripcion</h2>
+                        <p>{item.description}</p>
+                    </div>
+                </li>
+            )}
         </>
     );
 }

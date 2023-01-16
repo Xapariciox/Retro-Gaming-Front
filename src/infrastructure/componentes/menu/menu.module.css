@@ -1,19 +1,47 @@
 .ulMenu {
-    background-color: blue;
+    background-color: rgb(34, 34, 145);
     margin: 0;
     display: flex;
-    min-height: 15vh;
+    min-height: 12vh;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: 1.5rem;
     list-style: none;
     text-decoration: none;
+    padding: 8px;
+    width: 100%;
+}
+.nav {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+    min-width: 50vw;
 }
 .linkMenu {
     text-decoration: none;
-    background-color: black;
+    background-color: white;
     margin: padding;
-    color: #c3d4fb;
-    padding: 10px;
+    color: black;
+    padding: 5px;
     border-radius: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.linkMenu:hover {
+    opacity: 0.8;
+}
+.liMenu * {
+    min-width: 20px;
+    padding: 10px;
+}
+.logout {
+    display: flex;
+    align-items: center;
+}
+.logout img {
+    margin-right: 5px;
 }
