@@ -65,6 +65,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
                     </div>
 
                     <h1 className={style.name}>{item.name}</h1>
+                    <h1 className={style.price}>{item.price} €</h1>
                     <div>
                         <h2>Descripcion</h2>
                         <p>{item.description}</p>
