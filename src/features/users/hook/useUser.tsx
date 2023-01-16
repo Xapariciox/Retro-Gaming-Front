@@ -44,6 +44,10 @@ export const useUser = () => {
         repositoryUser.deleteCart(data.product);
         dispatcher(ac.deleteCart(data));
     };
+    const handleSDeletePurchasedProducts = () => {
+        repositoryUser.deletePurchasedProducts();
+        dispatcher(ac.deletePurchasedProducts());
+    };
     const handleUpdateCart = (data: userCart) => {
         repositoryUser.updateCart(data);
         dispatcher(ac.editAmountCart(data));
@@ -62,5 +66,6 @@ export const useUser = () => {
         handleDeleteCart,
         handleUpdateCart,
         handleBuyCart,
+        handleSDeletePurchasedProducts,
     };
 };

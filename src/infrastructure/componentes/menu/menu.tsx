@@ -47,11 +47,22 @@ export function Menu() {
                                 alt="cart"
                             />
                         </Link>
-                        <img
-                            width={'70px'}
-                            src={user.user.imageProfile}
-                            alt="Imagen Profile"
-                        />
+                        <div className={style.logout}>
+                            <Link to={'profile'}>
+                                <img
+                                    width={'70px'}
+                                    src={user.user.imageProfile}
+                                    alt="Imagen Profile"
+                                />
+                            </Link>
+                            <a className={style.link} href="/login">
+                                <img
+                                    width={'50px'}
+                                    src="../../../assets/logout.png"
+                                    alt="cart"
+                                />
+                            </a>
+                        </div>
                     </ul>
                 </>
             ) : (

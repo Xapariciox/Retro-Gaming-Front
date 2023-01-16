@@ -132,6 +132,19 @@ export class ServiceUsers {
             });
         });
     }
+    deletePurchasedProducts(): Promise<id> {
+        return fetch(`${this.url}/deletePurchasedProducts`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }).then((response) => {
+            return response.json().catch((error: Error) => {
+                return error;
+            });
+        });
+    }
     updateCart(data: userCart): Promise<UserI> {
         return fetch(`${this.url}/updatecart`, {
             method: 'PATCH',

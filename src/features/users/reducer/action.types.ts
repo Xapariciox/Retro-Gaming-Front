@@ -9,4 +9,5 @@ export const actionTypesUser = {
     buyCart: 'user@buyCart',
     editAmountCart: 'user@editAmountCar',
     deleteAccount: 'deleteAccount',
+    deletePurchasedProducts: 'deletePurchasedProducts',
 };

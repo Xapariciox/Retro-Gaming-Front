@@ -41,36 +41,35 @@ function Cart() {
                         <li className={style.itemConsole} key={item.product.id}>
                             <div>
                                 <p>{item.product.name}</p>
-                                <button
-                                    className={style.button}
-                                    onClick={() => handleDeleteCart(item)}
-                                >
-                                    ❌
-                                </button>
 
                                 <img
                                     className={style.imagen}
                                     src={item.product.image}
                                     alt={item.product.name}
                                 />
-
-                                <button
-                                    className={style.button}
-                                    onClick={() => addProduct(item)}
-                                >
-                                    +
-                                </button>
+                            </div>
+                            <p className={style.amount}>Amount {item.amount}</p>
+                            <div className={style.amount}>
                                 <button
                                     className={style.button}
                                     onClick={() => substractProduct(item)}
                                 >
                                     -
                                 </button>
+                                <button
+                                    className={style.button}
+                                    onClick={() => addProduct(item)}
+                                >
+                                    +
+                                </button>
                             </div>
-                            <p className={style.amount}>
-                                Cantidad {item.amount}
-                            </p>
                             <p>{item.product.price}€</p>
+                            <button
+                                className={style.button}
+                                onClick={() => handleDeleteCart(item)}
+                            >
+                                ❌
+                            </button>
                         </li>
                     ))}
                 </ul>

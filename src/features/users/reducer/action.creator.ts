@@ -18,3 +18,6 @@ export const editAmountCart = createAction<userCart>(
     actionTypesUser.editAmountCart
 );
 export const deleteAccount = createAction<void>(actionTypesUser.deleteAccount);
+export const deletePurchasedProducts = createAction<void>(
+    actionTypesUser.deletePurchasedProducts
+);

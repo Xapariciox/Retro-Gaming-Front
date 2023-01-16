@@ -56,6 +56,13 @@ export const userReducer = createReducer(initialState, (builder) => {
             ),
         },
     }));
+    builder.addCase(ac.deletePurchasedProducts, (state) => ({
+        ...state,
+        user: {
+            ...(state.user as UserI),
+            purchasedProducts: [],
+        },
+    }));
     builder.addCase(ac.favoritesDelete, (state, action) => ({
         ...state,
         user: {

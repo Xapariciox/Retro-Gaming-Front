@@ -5,6 +5,7 @@ function SeccionConsoles() {
     const { products } = useProduct();
     return (
         <>
+            <h1>Consoles</h1>
             <ul className={style.ListConsoles}>
                 <div className={style.containerConsoles}>
                     {products.map((item) => (

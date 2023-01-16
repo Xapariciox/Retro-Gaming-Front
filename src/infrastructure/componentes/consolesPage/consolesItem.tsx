@@ -17,14 +17,14 @@ function ConsolesItem({ item }: { item: ProductI }) {
     const handleClickLogout = () => {
         Swal.fire(
             `Registrate `,
-            `Para añadir Este articulo a favoritos Haz login por favor`,
+            `To perform this option, please login`,
             'error'
         );
     };
     const handleClickCart = (ev: SyntheticEvent) => {
         Swal.fire(
             `Succes `,
-            `you have just successfully added ${item.name} to your cart`,
+            `you have just successfully added "${item.name}" to your cart`,
             'success'
         );
         ev.preventDefault();
@@ -52,7 +52,9 @@ function ConsolesItem({ item }: { item: ProductI }) {
                         <p>{item.description}</p>
                     </div>
 
-                    <button onClick={handleClickCart}>🛒</button>
+                    <button className={style.cart} onClick={handleClickCart}>
+                        🛒
+                    </button>
                 </li>
             ) : (
                 <li key={item.id} className={style.itemConsole}>
