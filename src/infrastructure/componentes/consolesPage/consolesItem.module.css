@@ -33,3 +33,11 @@
 .cart {
     font-size: 1.5rem;
 }
+p,
+h1,
+button {
+    font-size: 20px;
+}
+.price {
+    color: rgb(255, 255, 255);
+}
