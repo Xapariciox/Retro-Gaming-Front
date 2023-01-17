@@ -14,6 +14,7 @@ export const useUser = () => {
 
     const handleLogin = (user: protoUser) => {
         repositoryUser.login(user).then((response) => {
+            console.log(response);
             if (response.token) {
                 localStorage.setItem('token', response.token);
                 dispatcher(ac.loginFinish(response));
