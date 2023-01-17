@@ -5,8 +5,11 @@ import { ServiceUsers } from '../service/service-user';
 import { protoUser, userCart } from '../types/types';
 import * as ac from '../reducer/action.creator';
 import { ProductI } from '../../products/types/products';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const useUser = () => {
+    const navigate = useNavigate();
     const user = useSelector((state: rootState) => state.user);
 
     const dispatcher = useDispatch();
@@ -14,11 +17,21 @@ export const useUser = () => {
 
     const handleLogin = (user: protoUser) => {
         repositoryUser.login(user).then((response) => {
-            console.log(response);
             if (response.token) {
                 localStorage.setItem('token', response.token);
                 dispatcher(ac.loginFinish(response));
             }
+            response.user
+                ? (navigate('/'),
+                  Swal.fire({
+                      icon: 'success',
+                      title: 'Welcome',
+                      text: `Welcome Back ${response.user.name} `,
+                  }))
+                : Swal.fire({
+                      icon: 'error',
+                      title: 'Email or password Not valid',
+                  });
         });
     };
 

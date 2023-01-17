@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './loginPage.module.css';
 
