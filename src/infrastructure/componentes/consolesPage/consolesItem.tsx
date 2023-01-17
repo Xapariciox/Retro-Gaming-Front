@@ -6,6 +6,14 @@ import style from './consolesItem.module.css';
 function ConsolesItem({ item }: { item: ProductI }) {
     const { handleAddFavorites, handleAddCart, user } = useUser();
     const handleClick = (ev: SyntheticEvent) => {
+        if (user.user?.favorites.find((product) => product.id === item.id)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `you have already added ${item.name} to your favorites`,
+            });
+            return;
+        }
         ev.preventDefault();
         handleAddFavorites(item);
         Swal.fire(
@@ -16,12 +24,20 @@ function ConsolesItem({ item }: { item: ProductI }) {
     };
     const handleClickLogout = () => {
         Swal.fire(
-            `Please resgister `,
+            `Please login `,
             `To perform this option, please login`,
             'error'
         );
     };
     const handleClickCart = (ev: SyntheticEvent) => {
+        if (user.user?.cart.find((product) => product.product.id === item.id)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `you have already added ${item.name} to your Cart`,
+            });
+            return;
+        }
         Swal.fire(
             `Succes `,
             `you have just successfully added "${item.name}" to your cart`,

@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './loginPage.module.css';
 
@@ -9,8 +9,6 @@ type formData = {
     password: string;
 };
 function LoginPage() {
-    const navigate = useNavigate();
-
     const { handleLogin } = useUser();
 
     const initialState: formData = {
@@ -22,11 +20,10 @@ function LoginPage() {
         const element = ev.target as HTMLFormElement;
         setFormState({ ...formState, [element.name]: element.value });
     };
+
     const handleLoginSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleLogin(formState);
-        Swal.fire(`Hello! `, `Welcome`, 'success');
-        navigate('/');
     };
 
     return (

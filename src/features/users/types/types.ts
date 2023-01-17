@@ -51,3 +51,6 @@ export type userCart = {
     product: ProductI;
     amount: number;
 };
+export type UserIObject = {
+    user: UserI;
+};
