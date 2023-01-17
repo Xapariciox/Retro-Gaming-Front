@@ -14,8 +14,10 @@ export const useUser = () => {
 
     const handleLogin = (user: protoUser) => {
         repositoryUser.login(user).then((response) => {
-            dispatcher(ac.loginFinish(response));
-            if (response.token) localStorage.setItem('token', response.token);
+            if (response.token) {
+                localStorage.setItem('token', response.token);
+                dispatcher(ac.loginFinish(response));
+            }
         });
     };
 
@@ -39,6 +41,7 @@ export const useUser = () => {
     };
     const handleLogoutFinish = () => {
         dispatcher(ac.logoutFinish());
+        localStorage.removeItem('token');
     };
     const handleAddCart = (data: userCart) => {
         repositoryUser.addCart(data.product);

@@ -1,5 +1,11 @@
 import { id } from './repository-interface';
-import { protoUser, userCart, UserI, UserToken } from '../types/types';
+import {
+    protoUser,
+    userCart,
+    UserI,
+    UserIObject,
+    UserToken,
+} from '../types/types';
 
 export class ServiceUsers {
     url: string;
@@ -22,7 +28,7 @@ export class ServiceUsers {
                 return error;
             });
     }
-    register(user: Partial<protoUser>): Promise<UserI> {
+    register(user: Partial<protoUser>): Promise<UserIObject> {
         return fetch(`${this.url}/register`, {
             method: 'POST',
             body: JSON.stringify(user),
