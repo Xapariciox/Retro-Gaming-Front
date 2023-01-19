@@ -74,6 +74,10 @@
 .itemConsole p {
     font-size: 1.5rem;
 }
+.itemConsole img {
+    width: 200px;
+    height: 200px;
+}
 .purchasedProducts {
     min-width: 100%;
 }
