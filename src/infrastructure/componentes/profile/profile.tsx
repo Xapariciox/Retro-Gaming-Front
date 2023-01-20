@@ -80,6 +80,7 @@ function Profile() {
                                     >
                                         <p>{item.product.name}</p>
                                         <img
+                                            className={style.imagen}
                                             src={item.product.image}
                                             alt={item.product.name}
                                         />

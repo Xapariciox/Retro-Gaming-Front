@@ -83,3 +83,7 @@
     align-items: center;
     min-width: 78vw;
 }
+.imagen {
+    width: 250px;
+    height: 250px;
+}
