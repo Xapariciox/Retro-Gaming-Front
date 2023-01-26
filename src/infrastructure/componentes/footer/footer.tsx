@@ -3,14 +3,14 @@ export const Footer = () => {
     return (
         <>
             <footer className={style.footer}>
-                <p>Developed for Roberto Sandoval</p>
+                <p>All rights reserved</p>
                 <div className={style.div}>
                     <a
                         className={style.link}
                         target="_blank"
                         href="https://www.linkedin.com/in/roberto-carlos-sandoval-aparicio/"
                     >
-                        Contact Us
+                        Contact
                     </a>
                 </div>
             </footer>
