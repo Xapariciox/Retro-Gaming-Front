@@ -14,3 +14,13 @@
 .linksHeader:hover {
     background-color: aliceblue !important;
 }
+.bubbleAlert {
+    position: relative;
+    background-color: #d16666;
+    border-radius: 15px;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    right: 12px;
+    top: 10px;
+}
