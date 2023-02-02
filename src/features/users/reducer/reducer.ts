@@ -39,6 +39,13 @@ export const userReducer = createReducer(initialState, (builder) => {
             favorites: [...(state.user as UserI).favorites, action.payload],
         },
     }));
+    builder.addCase(ac.updateUser, (state, action) => ({
+        ...state,
+        user: {
+            ...(state.user as UserI),
+            imageProfile: action.payload.imageProfile,
+        },
+    }));
     builder.addCase(ac.deleteCart, (state, action) => ({
         ...state,
         user: {

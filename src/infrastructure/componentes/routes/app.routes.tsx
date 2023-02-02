@@ -19,7 +19,7 @@ export function AppRoutes() {
                     element={<RegisterPage></RegisterPage>}
                 ></Route>
                 <Route
-                    path="consolesPage"
+                    path="products"
                     element={<SeccionConsoles></SeccionConsoles>}
                 ></Route>
                 <Route

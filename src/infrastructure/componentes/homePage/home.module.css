@@ -1,8 +1,0 @@
-.container {
-    min-height: 78vh;
-    background-image: url('../../../../public/assets/home.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    min-width: 100vw;
-}
