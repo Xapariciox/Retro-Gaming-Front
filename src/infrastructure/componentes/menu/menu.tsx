@@ -270,6 +270,8 @@ export function Menu() {
                                                 src="../../../assets/Userwhitoutpick.png"
                                                 alt="Profile"
                                                 className="me-2"
+                                                width={50}
+                                                height={50}
                                             />
                                         </Link>{' '}
                                         <Link
@@ -279,6 +281,8 @@ export function Menu() {
                                             <img
                                                 src="../../../assets/logout.png"
                                                 alt=""
+                                                width={30}
+                                                height={35}
                                             />
                                         </Link>
                                     </div>
