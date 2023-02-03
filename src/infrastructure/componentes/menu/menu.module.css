@@ -29,3 +29,27 @@
     font-weight: 600;
     margin-left: 9px;
 }
+
+@media (max-width: 600px) {
+    .retroGaming {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 9px;
+    }
+    .cartIcon {
+        width: 40px;
+        height: 40px;
+        margin-left: 35px;
+    }
+
+    .bubbleAlert {
+        position: relative;
+        background-color: #d16666;
+        border-radius: 15px;
+        color: #fff;
+        padding: 2px 8px;
+        font-size: 0.7rem;
+        right: 12px;
+        top: 10px;
+    }
+}

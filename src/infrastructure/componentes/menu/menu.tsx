@@ -18,7 +18,7 @@ export function Menu() {
                     className={`${style.headerNav} row nav g-0 justify-content-between   justify-content-md-between  rounded-top border-bottom `}
                 >
                     <div
-                        className={`logo col-7 col-md-3 d-flex   d-sm-flex align-items-center justify-content-center pe-md-5   `}
+                        className={`logo col-6   col-md-3 d-flex   d-sm-flex align-items-center justify-content-center pe-md-5    `}
                     >
                         <Link to={'home'}>
                             <img
@@ -28,7 +28,9 @@ export function Menu() {
                                 alt=""
                             />
                         </Link>
-                        <p className={`${style.retroGaming} mb-0  text-danger`}>
+                        <p
+                            className={`${style.retroGaming}  d-md-block mb-0  text-danger`}
+                        >
                             RETRO-GAMING
                         </p>
                     </div>
@@ -92,6 +94,7 @@ export function Menu() {
                                             <img
                                                 src="../../../assets/cart.png"
                                                 alt=""
+                                                className={`${style.cartIcon}`}
                                             />
                                             <span
                                                 className={`${style.bubbleAlert}`}
@@ -103,7 +106,7 @@ export function Menu() {
                                         </Link>
                                     </div>
 
-                                    <div className="col-2 d-flex justify-content-center align-items-center">
+                                    <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
                                         <Link to={'/profile'}>
                                             <img
                                                 src={user.user.imageProfile}
@@ -137,62 +140,60 @@ export function Menu() {
                                                 data-bs-toggle="dropdown"
                                             ></button>
                                             <ul className="dropdown-menu ">
-                                                <div className="">
-                                                    <Link to={'/login'}>
-                                                        <button className="btn btn-primary me-2">
-                                                            Login
-                                                        </button>
-                                                    </Link>
-                                                    <Link to={'register'}>
-                                                        <button className="btn btn-secondary">
-                                                            Sing up
-                                                        </button>
-                                                    </Link>
-                                                </div>
                                                 <li className="mt-1">
-                                                    <a
-                                                        href="https://drive.google.com/file/d/1NLkgzG9H2jsZy-If_KI9F1yyq3zeCvzA/view?usp=sharing"
+                                                    <Link
+                                                        to={'/'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            <span>Resume</span>
+                                                            <span>Home</span>
                                                         </div>
-                                                    </a>
-                                                    <a
-                                                        href="#aboutMe"
-                                                        className="px-4 text-decoration-none d-flex  text-center"
-                                                    >
-                                                        <div className="w-100 d-inline">
-                                                            <span>About</span>
-                                                        </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2">
-                                                    <a
-                                                        href="#projects"
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/products'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            {' '}
                                                             <span>
-                                                                Projects
+                                                                Products
                                                             </span>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2">
-                                                    {' '}
-                                                    <a
-                                                        href="#contact"
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/favorites'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            {' '}
+                                                            <span>
+                                                                Favorites
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>About</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
                                                             <span>Contact</span>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2"></li>
                                             </ul>
                                         </div>
                                     </nav>
@@ -254,6 +255,7 @@ export function Menu() {
                                             <img
                                                 src="../../../assets/cart.png"
                                                 alt=""
+                                                className={`${style.cartIcon}`}
                                             />
                                             <span
                                                 className={`${style.bubbleAlert}`}
@@ -264,7 +266,7 @@ export function Menu() {
                                             </span>
                                         </Link>
                                     </div>
-                                    <div className="col-2 d-flex justify-content-center align-items-center">
+                                    <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
                                         <Link to={'/profile'}>
                                             <img
                                                 src="../../../assets/Userwhitoutpick.png"
@@ -299,62 +301,60 @@ export function Menu() {
                                                 data-bs-toggle="dropdown"
                                             ></button>
                                             <ul className="dropdown-menu ">
-                                                <div className="">
-                                                    <Link to={'/login'}>
-                                                        <button className="btn btn-primary me-2">
-                                                            Login
-                                                        </button>
-                                                    </Link>
-                                                    <Link to={'register'}>
-                                                        <button className="btn btn-secondary">
-                                                            Sing up
-                                                        </button>
-                                                    </Link>
-                                                </div>
                                                 <li className="mt-1">
-                                                    <a
-                                                        href="https://drive.google.com/file/d/1NLkgzG9H2jsZy-If_KI9F1yyq3zeCvzA/view?usp=sharing"
+                                                    <Link
+                                                        to={'/'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            <span>Resume</span>
+                                                            <span>Home</span>
                                                         </div>
-                                                    </a>
-                                                    <a
-                                                        href="#aboutMe"
-                                                        className="px-4 text-decoration-none d-flex  text-center"
-                                                    >
-                                                        <div className="w-100 d-inline">
-                                                            <span>About</span>
-                                                        </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2">
-                                                    <a
-                                                        href="#projects"
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/products'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            {' '}
                                                             <span>
-                                                                Projects
+                                                                Products
                                                             </span>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2">
-                                                    {' '}
-                                                    <a
-                                                        href="#contact"
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/favorites'}
                                                         className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
-                                                            {' '}
+                                                            <span>
+                                                                Favorites
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>About</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
                                                             <span>Contact</span>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 </li>
-                                                <li className="mt-2"></li>
                                             </ul>
                                         </div>
                                     </nav>
@@ -383,6 +383,7 @@ export function Menu() {
                                         <span>Products</span>
                                     </div>
                                 </Link>
+
                                 <Link
                                     to={'/about'}
                                     className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
@@ -428,60 +429,47 @@ export function Menu() {
                                         data-bs-toggle="dropdown"
                                     ></button>
                                     <ul className="dropdown-menu ">
-                                        <div className="">
-                                            <Link to={'/login'}>
-                                                <button className="btn btn-primary me-2">
-                                                    Login
-                                                </button>
-                                            </Link>
-                                            <Link to={'register'}>
-                                                <button className="btn btn-secondary">
-                                                    Sing up
-                                                </button>
-                                            </Link>
-                                        </div>
                                         <li className="mt-1">
-                                            <a
-                                                href="https://drive.google.com/file/d/1NLkgzG9H2jsZy-If_KI9F1yyq3zeCvzA/view?usp=sharing"
+                                            <Link
+                                                to={'/'}
                                                 className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
-                                                    <span>Resume</span>
+                                                    <span>Home</span>
                                                 </div>
-                                            </a>
-                                            <a
-                                                href="#aboutMe"
-                                                className="px-4 text-decoration-none d-flex  text-center"
+                                            </Link>
+                                        </li>
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/products'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
-                                                <div className="w-100 d-inline">
+                                                <div className="w-100">
+                                                    <span>Products</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            >
+                                                <div className="w-100">
                                                     <span>About</span>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         </li>
-                                        <li className="mt-2">
-                                            <a
-                                                href="#projects"
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/'}
                                                 className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
-                                                    {' '}
-                                                    <span>Projects</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="mt-2">
-                                            {' '}
-                                            <a
-                                                href="#contact"
-                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
-                                            >
-                                                <div className="w-100">
-                                                    {' '}
                                                     <span>Contact</span>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         </li>
-                                        <li className="mt-2"></li>
                                     </ul>
                                 </div>
                             </nav>
