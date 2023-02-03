@@ -29,11 +29,7 @@
     justify-content: center;
     align-items: center;
 }
-p,
-button {
-    font-size: 25px;
-    padding: 5px;
-}
+
 .amount * {
     margin: 5px;
     width: 50px;

@@ -15,10 +15,10 @@ export function Menu() {
         <>
             <header id="header" className="container-fluid p-0">
                 <div
-                    className={`${style.headerNav} row nav g-0  justify-content-end justify-content-sm-between rounded-top border-bottom `}
+                    className={`${style.headerNav} row nav g-0 justify-content-between   justify-content-md-between  rounded-top border-bottom `}
                 >
                     <div
-                        className={`logo col-3 d-none  d-sm-flex align-items-center justify-content-center pe-5 ${style.divRol}  `}
+                        className={`logo col-7 col-md-3 d-flex   d-sm-flex align-items-center justify-content-center pe-md-5   `}
                     >
                         <Link to={'home'}>
                             <img
@@ -28,7 +28,7 @@ export function Menu() {
                                 alt=""
                             />
                         </Link>
-                        <p className=" mb-0 text-center text-danger">
+                        <p className={`${style.retroGaming} mb-0  text-danger`}>
                             RETRO-GAMING
                         </p>
                     </div>

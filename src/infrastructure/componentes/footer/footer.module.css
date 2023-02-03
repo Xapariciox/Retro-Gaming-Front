@@ -8,3 +8,9 @@
 .copyright {
     color: #d9dbe1;
 }
+
+@media (max-width: 500px) {
+    .copyright {
+        font-size: 0.7rem;
+    }
+}
