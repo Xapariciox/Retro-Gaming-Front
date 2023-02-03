@@ -1,3 +1,19 @@
 .containerHome {
-    min-height: 100vh;
+    min-height: 85vh;
+}
+.consoleRetro {
+    width: 900px;
+    height: 750px;
+}
+.nostalgiaOfretroGame {
+    text-transform: uppercase;
+}
+.nostalgiaOfretroGame1 {
+    font-size: 4rem;
+}
+.nostalgiaOfretroGame2 {
+    font-size: 4.5rem;
+}
+.textHome {
+    text-align: justify;
 }
