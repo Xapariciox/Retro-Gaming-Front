@@ -7,7 +7,7 @@ import { v4 } from 'uuid';
 import {
     getUrl,
     uploadFile,
-} from '../../../features/users/service/config.ts/storage';
+} from '../../../features/users/service/supabase.ts/storage';
 
 import style from './profile.module.css';
 
