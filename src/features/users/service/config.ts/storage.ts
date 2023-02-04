@@ -1,6 +1,7 @@
 import { supabase } from './config';
 
 export const uploadFile = async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fileBody: any,
     name: string,
     idImage: string
