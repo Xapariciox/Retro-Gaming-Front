@@ -5,14 +5,15 @@ function SeccionConsoles() {
     const { products } = useProduct();
     return (
         <>
-            <h1>Consoles</h1>
-            <ul className={style.ListConsoles}>
-                <div className={style.containerConsoles}>
+            <div
+                className={`container-fluid ${style.containerProductsSection}`}
+            >
+                <ul className="row  ps-0 d-flex align-items-center justify-content-center">
                     {products.map((item) => (
                         <ConsolesItem key={item.id} item={item}></ConsolesItem>
                     ))}
-                </div>
-            </ul>
+                </ul>
+            </div>
         </>
     );
 }

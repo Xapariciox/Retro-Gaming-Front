@@ -1,7 +1,16 @@
+import { SyntheticEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useUser } from '../../../features/users/hook/useUser';
+import { v4 } from 'uuid';
+
+import {
+    getUrl,
+    uploadFile,
+} from '../../../features/users/service/config.ts/storage';
+
 import style from './profile.module.css';
+
 function Profile() {
     const navigate = useNavigate();
     const {
@@ -9,7 +18,23 @@ function Profile() {
         user,
         handleSDeletePurchasedProducts,
         handleLogoutFinish,
+        handleChangeProfileImg,
     } = useUser();
+    const [file, setfile] = useState({});
+
+    const handleSubmit = async (e: SyntheticEvent) => {
+        const idImage = v4();
+        e.preventDefault();
+        await uploadFile(file, user.user?.name as unknown as string, idImage);
+        const url = await getUrl(
+            user.user?.name as unknown as string,
+            idImage
+        ).then((item) => item?.publicUrl);
+
+        handleChangeProfileImg({
+            imageProfile: url,
+        });
+    };
     const onClick = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -66,6 +91,16 @@ function Profile() {
                             >
                                 Delete Account
                             </button>
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    accept="image/*"
+                                    type="file"
+                                    name=""
+                                    id=""
+                                    onChange={(file) => setfile(file)}
+                                />
+                                <button>upload</button>
+                            </form>
                         </div>
                         <div className={style.deletePurchasedProduct}>
                             <h1>Purchased Products</h1>
@@ -118,6 +153,16 @@ function Profile() {
                                 >
                                     Delete Account
                                 </button>
+                                <form onSubmit={handleSubmit}>
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        name=""
+                                        id=""
+                                        onChange={(file) => setfile(file)}
+                                    />
+                                    <button>upload</button>
+                                </form>
                             </div>
 
                             <h1>Purchased Products</h1>

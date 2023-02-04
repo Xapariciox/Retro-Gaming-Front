@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '../../../infrastructure/store/store';
 import { ServiceUsers } from '../service/service-user';
-import { protoUser, userCart } from '../types/types';
+import { protoUser, userCart, UserI } from '../types/types';
 import * as ac from '../reducer/action.creator';
 import { ProductI } from '../../products/types/products';
 import { useNavigate } from 'react-router-dom';
@@ -77,6 +77,11 @@ export const useUser = () => {
         repositoryUser.buyCart();
         dispatcher(ac.buyCart(data as unknown as userCart));
     };
+    const handleChangeProfileImg = (user: protoUser) => {
+        repositoryUser.patch(user);
+        dispatcher(ac.updateUser(user as unknown as UserI));
+    };
+
     return {
         user,
         handleLogin,
@@ -89,5 +94,6 @@ export const useUser = () => {
         handleBuyCart,
         handleSDeletePurchasedProducts,
         handleLogoutFinish,
+        handleChangeProfileImg,
     };
 };

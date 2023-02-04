@@ -1,8 +1,44 @@
-.container {
-    min-height: 78vh;
-    background-image: url('../../../../public/assets/home.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    min-width: 100vw;
+@font-face {
+    font-family: 'retroFont';
+    src: url('../../../../public/assets/retroFont.ttf');
+}
+.containerHome {
+    min-height: 85vh;
+}
+.consoleRetro {
+    width: 900px;
+    height: 750px;
+}
+.nostalgiaOfretroGame {
+    text-transform: uppercase;
+    font-family: 'retroFont';
+}
+.nostalgiaOfretroGame1 {
+    font-size: 4.8rem;
+}
+.nostalgiaOfretroGame2 {
+    font-size: 5.5rem;
+    color: red;
+}
+.textHome {
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+    .consoleRetro {
+        width: 300px;
+        height: 310px;
+    }
+    .nostalgiaOfretroGame1 {
+        font-size: 3rem;
+    }
+    .nostalgiaOfretroGame2 {
+        font-size: 3.8rem;
+        color: red;
+    }
+    .textHome {
+        text-align: justify;
+        font-size: 1.1rem;
+    }
 }

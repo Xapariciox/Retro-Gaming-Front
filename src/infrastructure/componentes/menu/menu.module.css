@@ -1,47 +1,56 @@
-.ulMenu {
-    background-color: rgb(34, 34, 145);
-    margin: 0;
-    display: flex;
-    min-height: 12vh;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    list-style: none;
-    text-decoration: none;
-    padding: 8px;
-    width: 100%;
+.headerNav {
+    min-height: 10vh;
+    /* overflow: hidden; */
+    background-color: rgb(252, 252, 252);
 }
-.nav {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    list-style: none;
-    text-decoration: none;
-    min-width: 50vw;
-}
-.linkMenu {
-    text-decoration: none;
-    background-color: white;
-    margin: padding;
-    color: black;
+.logoRol * {
     padding: 5px;
-    border-radius: 10px;
-    transition: opacity 0.5s ease;
+}
+.rol {
+    font-size: 20px;
+    margin-left: 15px;
+    color: blue;
+}
+.linksHeader:hover {
+    background-color: aliceblue !important;
+}
+.bubbleAlert {
+    position: relative;
+    background-color: #d16666;
+    border-radius: 15px;
+    color: #fff;
+    padding: 0.4px 8px;
+    font-size: 0.9rem;
+    right: 12px;
+    top: 10px;
+}
+.retroGaming {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 9px;
 }
 
-.linkMenu:hover {
-    opacity: 0.8;
-}
-.liMenu * {
-    min-width: 20px;
-    padding: 10px;
-}
-.logout {
-    display: flex;
-    align-items: center;
-}
-.logout img {
-    margin-right: 20px;
+@media (max-width: 600px) {
+    .retroGaming {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 9px;
+    }
+    .cartIcon {
+        width: 40px;
+        height: 40px;
+        margin-left: 35px;
+    }
+
+    .bubbleAlert {
+        padding: 2px 6px;
+        font-size: 0.6rem;
+        height: 15px;
+        margin: 0 auto;
+        top: 20px;
+    }
+    .cartLinkIcon {
+        text-decoration: none;
+        display: flex;
+    }
 }

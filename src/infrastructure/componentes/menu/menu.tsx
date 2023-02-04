@@ -1,138 +1,496 @@
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './menu.module.css';
 export function Menu() {
     const { user, handleLogoutFinish } = useUser();
-    const home = [
-        { id: 1, path: 'Register', label: 'Register' },
-        { id: 2, path: 'Login', label: 'Login' },
-        { id: 3, path: 'consolesPage', label: 'Consoles' },
-    ];
-    const homeLogin = [
-        { id: 1, path: 'consolesPage', label: 'Consoles' },
-        { id: 2, path: 'favorites', label: 'Favorites' },
-        { id: 3, path: 'profile', label: 'Profile' },
-    ];
-
+    const numberCart = (cartLengt: number) => {
+        if (!cartLengt) {
+            return '';
+        }
+        return cartLengt > 9 ? '+9' : cartLengt;
+    };
     return (
         <>
-            {user.user ? (
-                <>
-                    {user.user.imageProfile ? (
-                        <ul className={style.ulMenu}>
-                            <Link to={''}>
-                                <img
-                                    className={style.logo}
-                                    width={'70px'}
-                                    src="../../../assets/logo.png"
-                                    alt="menu/logo.png"
-                                />
-                            </Link>
-                            <nav className={style.nav}>
-                                {homeLogin.map((item) => (
-                                    <li className={style.liMenu} key={item.id}>
-                                        <Link
-                                            className={style.linkMenu}
-                                            to={item.path}
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </nav>
+            <header id="header" className="container-fluid p-0">
+                <div
+                    className={`${style.headerNav} row nav g-0 justify-content-between   justify-content-md-between  rounded-top border-bottom `}
+                >
+                    <div
+                        className={`logo col-6   col-md-3 d-flex   d-sm-flex align-items-center justify-content-center pe-md-5    `}
+                    >
+                        <Link to={'home'}>
+                            <img
+                                src="../../../assets/logo.png"
+                                width={60}
+                                height={60}
+                                alt=""
+                            />
+                        </Link>
+                        <p
+                            className={`${style.retroGaming}  d-md-block mb-0  text-danger`}
+                        >
+                            RETRO-GAMING
+                        </p>
+                    </div>
 
-                            <Link to={'cart'}>
-                                <img
-                                    width={'70px'}
-                                    src="../../../assets/cart.png"
-                                    alt="cart"
-                                />
-                            </Link>
-                            <div className={style.logout}>
-                                <Link to={'profile'}>
-                                    <img
-                                        className={style.imagenProfile}
-                                        width={'70px'}
-                                        src={user.user.imageProfile}
-                                        alt="Imagen Profile"
-                                    />
-                                </Link>
-                                <Link
-                                    onClick={() => handleLogoutFinish()}
-                                    to={'login'}
-                                >
-                                    <img
-                                        width={'50px'}
-                                        src="../../../assets/logout.png"
-                                        alt="logout"
-                                    />
-                                </Link>
-                            </div>
-                        </ul>
+                    {user.user ? (
+                        <>
+                            {user.user.imageProfile ? (
+                                <>
+                                    <nav
+                                        className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
+                                    >
+                                        <Link
+                                            to={'/'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Home</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'products'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Products</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'favorites'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Favorites</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'/about'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                {' '}
+                                                <span>About</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'/contact'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                {' '}
+                                                <span>Contact</span>
+                                            </div>
+                                        </Link>
+                                    </nav>
+
+                                    <div className="col-1 d-flex justify-content-center align-items-center">
+                                        <Link
+                                            to={'/cart'}
+                                            className={`${style.cartLinkIcon} text-decoration-none`}
+                                        >
+                                            <img
+                                                src="../../../assets/cart.png"
+                                                alt=""
+                                                className={`${style.cartIcon}`}
+                                            />
+                                            <span
+                                                className={`${style.bubbleAlert}`}
+                                            >
+                                                {numberCart(
+                                                    user.user.cart.length
+                                                )}
+                                            </span>
+                                        </Link>
+                                    </div>
+
+                                    <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
+                                        <Link to={'/profile'}>
+                                            <img
+                                                src={user.user.imageProfile}
+                                                width={50}
+                                                height={55}
+                                                alt="ProfilePhoto"
+                                                className="me-2 "
+                                            />
+                                        </Link>{' '}
+                                        <Link
+                                            to={'/login'}
+                                            onClick={() => handleLogoutFinish()}
+                                        >
+                                            <img
+                                                src="../../../assets/logout.png"
+                                                alt=""
+                                            />
+                                        </Link>
+                                    </div>
+
+                                    <nav
+                                        className={`${style.burguer} menu col-auto d-flex align-items-stretch d-block d-md-none  `}
+                                    >
+                                        <div
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <button
+                                                className="btn btn-primary btn-lg dropdown-toggle dropdown-lg-toggle"
+                                                type="button"
+                                                id="drowup"
+                                                data-bs-toggle="dropdown"
+                                            ></button>
+                                            <ul className="dropdown-menu ">
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>Home</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/products'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>
+                                                                Products
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/favorites'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>
+                                                                Favorites
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>About</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>Contact</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </>
+                            ) : (
+                                <>
+                                    {' '}
+                                    <nav
+                                        className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
+                                    >
+                                        <Link
+                                            to={'/'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Home</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'products'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Products</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'favorites'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                <span>Favorites</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'/about'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                {' '}
+                                                <span>About</span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to={'/contact'}
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <div className="w-100">
+                                                {' '}
+                                                <span>Contact</span>
+                                            </div>
+                                        </Link>
+                                    </nav>
+                                    <div className="col-1 d-flex justify-content-center align-items-center">
+                                        <Link
+                                            to={'/cart'}
+                                            className={`${style.cartLinkIcon} text-decoration-none`}
+                                        >
+                                            <img
+                                                src="../../../assets/cart.png"
+                                                alt=""
+                                                className={`${style.cartIcon}`}
+                                            />
+                                            <span
+                                                className={`${style.bubbleAlert}`}
+                                            >
+                                                {numberCart(
+                                                    user.user.cart.length
+                                                )}
+                                            </span>
+                                        </Link>
+                                    </div>
+                                    <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
+                                        <Link to={'/profile'}>
+                                            <img
+                                                src="../../../assets/Userwhitoutpick.png"
+                                                alt="Profile"
+                                                className="me-2"
+                                                width={50}
+                                                height={50}
+                                            />
+                                        </Link>{' '}
+                                        <Link
+                                            to={'/login'}
+                                            onClick={() => handleLogoutFinish()}
+                                        >
+                                            <img
+                                                src="../../../assets/logout.png"
+                                                alt=""
+                                                width={30}
+                                                height={35}
+                                            />
+                                        </Link>
+                                    </div>
+                                    <nav
+                                        className={`${style.burguer} menu col-auto d-flex align-items-stretch d-block d-md-none  `}
+                                    >
+                                        <div
+                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                        >
+                                            <button
+                                                className="btn btn-primary btn-lg dropdown-toggle dropdown-lg-toggle"
+                                                type="button"
+                                                id="drowup"
+                                                data-bs-toggle="dropdown"
+                                            ></button>
+                                            <ul className="dropdown-menu ">
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>Home</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/products'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>
+                                                                Products
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/favorites'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>
+                                                                Favorites
+                                                            </span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>About</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                                <li className="mt-1">
+                                                    <Link
+                                                        to={'/'}
+                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    >
+                                                        <div className="w-100">
+                                                            <span>Contact</span>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </>
+                            )}
+                        </>
                     ) : (
-                        <ul className={style.ulMenu}>
-                            <Link to={''}>
-                                <img
-                                    className={style.logo}
-                                    width={'70px'}
-                                    src="../../../assets/logo.png"
-                                    alt="menu/logo.png"
-                                />
-                            </Link>
-                            <nav className={style.nav}>
-                                {homeLogin.map((item) => (
-                                    <li className={style.liMenu} key={item.id}>
-                                        <Link
-                                            className={style.linkMenu}
-                                            to={item.path}
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </nav>
-
-                            <Link to={'cart'}>
-                                <img
-                                    width={'70px'}
-                                    src="../../../assets/cart.png"
-                                    alt="cart"
-                                />
-                            </Link>
-                            <div className={style.logout}>
+                        <>
+                            {' '}
+                            <nav
+                                className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
+                            >
                                 <Link
-                                    onClick={() => handleLogoutFinish()}
-                                    to={'login'}
+                                    to={'/'}
+                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                 >
-                                    <img
-                                        width={'50px'}
-                                        src="../../../assets/logout.png"
-                                        alt="logout"
-                                    />
+                                    <div className="w-100">
+                                        <span>Home</span>
+                                    </div>
+                                </Link>
+                                <Link
+                                    to={'products'}
+                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                >
+                                    <div className="w-100">
+                                        <span>Products</span>
+                                    </div>
+                                </Link>
+
+                                <Link
+                                    to={'/about'}
+                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                >
+                                    <div className="w-100">
+                                        {' '}
+                                        <span>About</span>
+                                    </div>
+                                </Link>
+                                <Link
+                                    to={'/contact'}
+                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                >
+                                    <div className="w-100">
+                                        {' '}
+                                        <span>Contact</span>
+                                    </div>
+                                </Link>
+                            </nav>
+                            <div className="col-3 d-none d-md-flex justify-content-center align-items-center ">
+                                <Link to={'/login'}>
+                                    <button className="btn btn-danger me-2">
+                                        Login
+                                    </button>
+                                </Link>
+                                <Link to={'register'}>
+                                    <button className="btn btn-secondary">
+                                        Sing up
+                                    </button>
                                 </Link>
                             </div>
-                        </ul>
+                            {/* menu hamburguesa */}
+                            <nav
+                                className={`${style.burguer} menu col-auto d-flex align-items-stretch d-block d-md-none  `}
+                            >
+                                <div
+                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                >
+                                    <button
+                                        className="btn btn-primary btn-lg dropdown-toggle dropdown-lg-toggle"
+                                        type="button"
+                                        id="drowup"
+                                        data-bs-toggle="dropdown"
+                                    ></button>
+                                    <ul className="dropdown-menu ">
+                                        <div className="  d-flex flex-column  align-items-end ">
+                                            <Link to={'/login'}>
+                                                <button className="btn w-75 w-100 btn-danger me-2">
+                                                    Login
+                                                </button>
+                                            </Link>
+                                            <Link to={'register'}>
+                                                <button className="btn w-75 w-100 btn-secondary">
+                                                    Sing up
+                                                </button>
+                                            </Link>
+                                        </div>
+
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            >
+                                                <div className="w-100">
+                                                    <span>Home</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/products'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            >
+                                                <div className="w-100">
+                                                    <span>Products</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            >
+                                                <div className="w-100">
+                                                    <span>About</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="mt-1">
+                                            <Link
+                                                to={'/'}
+                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            >
+                                                <div className="w-100">
+                                                    <span>Contact</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            {/* menu hamburguesa */}
+                        </>
                     )}
-                </>
-            ) : (
-                <ul className={style.ulMenu}>
-                    <Link to={''}>
-                        <img
-                            width={'70px'}
-                            src="../../../assets/logo.png"
-                            alt="menu/logo.png"
-                        />
-                    </Link>
-                    {home.map((item) => (
-                        <li className={style.liMenu} key={item.id}>
-                            <Link className={style.linkMenu} to={item.path}>
-                                {item.label}
-                            </Link>
-                        </li>
-                    ))}
-                    <div></div>
-                </ul>
-            )}
+                </div>
+            </header>
         </>
     );
 }

@@ -65,7 +65,7 @@ export class ServiceUsers {
             });
         });
     }
-    patch(data: Partial<UserI>): Promise<UserI> {
+    patch(data: Partial<protoUser>): Promise<UserI> {
         return fetch(`${this.url}/updateuser`, {
             method: 'PATCH',
             body: JSON.stringify(data),

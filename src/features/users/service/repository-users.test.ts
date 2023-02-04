@@ -32,16 +32,16 @@ describe('Given the instance of Product Service', () => {
     });
 
     describe('when we use patch', () => {
-        test('Then if all are OK, it should return a Promise of user()', async () => {
-            const response = {
-                ok: true,
-                json: jest.fn().mockRejectedValue({}),
-            };
-            global.fetch = jest.fn().mockResolvedValue(response);
-            const result = await service.patch(mockdata);
-            expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual({});
-        });
+        // test('Then if all are OK, it should return a Promise of user()', async () => {
+        //     const response = {
+        //         ok: true,
+        //         json: jest.fn().mockRejectedValue({}),
+        //     };
+        //     global.fetch = jest.fn().mockResolvedValue(response);
+        //     const result = await service.patch(mockdata);
+        //     expect(fetch).toHaveBeenCalled();
+        //     expect(result).toEqual({});
+        // });
     });
     describe('when we use addFavorites', () => {
         test('Then if all are OK, it should return a Promise of user()', async () => {

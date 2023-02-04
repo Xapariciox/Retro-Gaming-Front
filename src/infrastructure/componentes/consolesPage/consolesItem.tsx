@@ -54,30 +54,98 @@ function ConsolesItem({ item }: { item: ProductI }) {
     return (
         <>
             {user.user ? (
-                <li key={item.id} className={style.itemConsole}>
-                    <p> Stock Restante: {item.stock}</p>
-                    <div className={style.imagendiv}>
-                        <img className={style.imagen} src={item.image} />
-                        <button onClick={handleClick}>💖</button>
+                <li
+                    key={item.id}
+                    className={`card col-10 col-md-2 m-2 m-md-5 mt-4 ${style.cardProduct}`}
+                >
+                    <div className="d-flex align-items-center justify-content-end">
+                        <a
+                            className={`border-0 p-0  ${style.linkFavoritesAndCart}`}
+                            onClick={handleClick}
+                        >
+                            <img
+                                onClick={() => handleClick}
+                                src="../../../assets/buttonFavorites.png"
+                                alt="Product"
+                                width={25}
+                                height={25}
+                                className={` mt-3  `}
+                            />
+                        </a>
                     </div>
-
-                    <h1 className={style.name}>{item.name}</h1>
-                    <h1 className={style.price}>{item.price} €</h1>
-
-                    <button className={style.cart} onClick={handleClickCart}>
-                        🛒
-                    </button>
+                    <img
+                        src={item.image}
+                        alt="Product"
+                        className={` mt-2 card-img-top ${style.imgProducts}`}
+                    />
+                    <div className="card-body">
+                        <h6 className="card-subtitle text-muted">
+                            stock: {item.stock}
+                        </h6>
+                        <h5
+                            className={`card-title mb-2 ${style.nameCardproduct}`}
+                        >
+                            {item.name}
+                        </h5>
+                        <div className="d-flex mt-4 align-items-center justify-content-between">
+                            <p className={`card-text ${style.priceProduct} `}>
+                                {' '}
+                                {item.price} €
+                            </p>
+                            <a
+                                className={`p-0 m-0 ${style.linkFavoritesAndCart}`}
+                                onClick={handleClickCart}
+                            >
+                                <img
+                                    width={25}
+                                    src="../../../assets/cartCard.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                    </div>
                 </li>
             ) : (
-                <li key={item.id} className={style.itemConsole}>
-                    <p> Stock Restante: {item.stock}</p>
-                    <div className={style.imagendiv}>
-                        <img className={style.imagen} src={item.image} />
-                        <button onClick={handleClickLogout}>💖</button>
+                <li
+                    key={item.id}
+                    className={`card col-10 col-md-2 m-2 m-md-5 ${style.cardProduct}`}
+                >
+                    <div className="d-flex align-items-center justify-content-end">
+                        <a
+                            className={`border-0 p-0  ${style.linkFavoritesAndCart}`}
+                            onClick={handleClickLogout}
+                        >
+                            <img
+                                onClick={() => handleClick}
+                                src="../../../assets/buttonFavorites.png"
+                                alt="Product"
+                                width={25}
+                                height={25}
+                                className={` mt-3  `}
+                            />
+                        </a>
                     </div>
-
-                    <h1 className={style.name}>{item.name}</h1>
-                    <h1 className={style.price}>{item.price} €</h1>
+                    <img
+                        src={item.image}
+                        alt="Product"
+                        className={` mt-2 card-img-top ${style.imgProducts}`}
+                    />
+                    <div className="card-body">
+                        <h6 className="card-subtitle text-muted">
+                            stock: {item.stock}
+                        </h6>
+                        <h5
+                            className={`card-title mb-2 ${style.nameCardproduct}`}
+                        >
+                            {item.name}
+                        </h5>
+                        <div className="d-flex mt-4 align-items-center justify-content-between">
+                            <p className={`card-text ${style.priceProduct} `}>
+                                {' '}
+                                {item.price} €
+                            </p>
+                        </div>
+                    </div>
                 </li>
             )}
         </>
