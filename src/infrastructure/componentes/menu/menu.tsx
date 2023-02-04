@@ -89,7 +89,7 @@ export function Menu() {
                                     <div className="col-1 d-flex justify-content-center align-items-center">
                                         <Link
                                             to={'/cart'}
-                                            className="text-decoration-none"
+                                            className={`${style.cartLinkIcon} text-decoration-none`}
                                         >
                                             <img
                                                 src="../../../assets/cart.png"
@@ -250,7 +250,7 @@ export function Menu() {
                                     <div className="col-1 d-flex justify-content-center align-items-center">
                                         <Link
                                             to={'/cart'}
-                                            className="text-decoration-none"
+                                            className={`${style.cartLinkIcon} text-decoration-none`}
                                         >
                                             <img
                                                 src="../../../assets/cart.png"
@@ -405,7 +405,7 @@ export function Menu() {
                             </nav>
                             <div className="col-3 d-none d-md-flex justify-content-center align-items-center ">
                                 <Link to={'/login'}>
-                                    <button className="btn btn-primary me-2">
+                                    <button className="btn btn-danger me-2">
                                         Login
                                     </button>
                                 </Link>
@@ -429,6 +429,19 @@ export function Menu() {
                                         data-bs-toggle="dropdown"
                                     ></button>
                                     <ul className="dropdown-menu ">
+                                        <div className="  d-flex flex-column  align-items-end ">
+                                            <Link to={'/login'}>
+                                                <button className="btn w-75 w-100 btn-danger me-2">
+                                                    Login
+                                                </button>
+                                            </Link>
+                                            <Link to={'register'}>
+                                                <button className="btn w-75 w-100 btn-secondary">
+                                                    Sing up
+                                                </button>
+                                            </Link>
+                                        </div>
+
                                         <li className="mt-1">
                                             <Link
                                                 to={'/'}
