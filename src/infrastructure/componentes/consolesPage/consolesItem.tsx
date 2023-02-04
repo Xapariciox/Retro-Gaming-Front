@@ -144,6 +144,16 @@ function ConsolesItem({ item }: { item: ProductI }) {
                                 {' '}
                                 {item.price} €
                             </p>
+                            <a
+                                className={`p-0 m-0 ${style.linkFavoritesAndCart}`}
+                                onClick={handleClickLogout}
+                            >
+                                <img
+                                    width={25}
+                                    src="../../../assets/cartCard.png"
+                                    alt=""
+                                />
+                            </a>
                         </div>
                     </div>
                 </li>
