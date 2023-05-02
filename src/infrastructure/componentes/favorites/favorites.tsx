@@ -1,13 +1,17 @@
+import { useEffect, useState } from 'react';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './favorites.module.css';
 
 function Favorites() {
     const { handleDeleteFavorites } = useUser();
     const { user } = useUser();
+    const [favorites, setFavorites] = useState(user.user?.favorites[0])
+
 
     return (
         <>
-            <div
+        {console.log(favorites)}
+        {favorites ?<div
                 className={`container-fluid ${style.containerProductsSection}`}
             >
                 <ul className="row  ps-0 d-flex align-items-center justify-content-center">
@@ -49,7 +53,8 @@ function Favorites() {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div>  :<h4 className={style.noFavorites}>No tienes favoritos</h4>}
+            
         </>
     );
 }
