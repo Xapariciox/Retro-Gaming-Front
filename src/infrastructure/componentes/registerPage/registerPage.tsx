@@ -75,14 +75,7 @@ function RegisterPage() {
                             placeholder="Password"
                             required={true}
                         />
-                        <input
-                            className={style.label}
-                            type="text"
-                            name="imageProfile"
-                            value={formState.imageProfile}
-                            onInput={handleRegisterInput}
-                            placeholder="Image url"
-                        />
+ 
                     </div>
 
                     <button type="submit" className={style.button}>
