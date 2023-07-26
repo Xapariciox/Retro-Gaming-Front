@@ -5,7 +5,7 @@ import { RepositoryProducts } from './repository-interface';
 export class ServiceProducts implements RepositoryProducts {
     url: string;
     constructor(
-        url = 'https://retro-gaming-backend-production.up.railway.app/products'
+        url = 'https://retro-gaming-back.onrender.com/products'
     ) {
         this.url = url;
     }

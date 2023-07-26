@@ -11,7 +11,7 @@ export class ServiceUsers {
     url: string;
     constructor() {
         this.url =
-            'https://retro-gaming-backend-production.up.railway.app/users';
+            'https://retro-gaming-back.onrender.com/users';
     }
     login(user: Partial<protoUser>): Promise<UserToken> {
         return fetch(`${this.url}/login`, {
