@@ -8,7 +8,7 @@ function SeccionConsoles() {
             <div
                 className={`container-fluid ${style.containerProductsSection}`}
             >
-                <ul className="row  ps-0 d-flex align-items-center justify-content-center">
+                <ul className={`row pt-3 pb-3  ps-0 ${style.products}`}>
                     {products.map((item) => (
                         <ConsolesItem key={item.id} item={item}></ConsolesItem>
                     ))}

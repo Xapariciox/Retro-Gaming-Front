@@ -56,7 +56,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
             {user.user ? (
                 <li
                     key={item.id}
-                    className={`card col-10 col-md-2 m-2 m-md-5 mt-4 ${style.cardProduct}`}
+                    className={`card  ${style.cardProduct}`}
                 >
                     <div className="d-flex align-items-center justify-content-end">
                         <a
@@ -108,7 +108,7 @@ function ConsolesItem({ item }: { item: ProductI }) {
             ) : (
                 <li
                     key={item.id}
-                    className={`card col-10 col-md-2 m-2 m-md-5 ${style.cardProduct}`}
+                    className={`card ${style.cardProduct}`}
                 >
                     <div className="d-flex align-items-center justify-content-end">
                         <a

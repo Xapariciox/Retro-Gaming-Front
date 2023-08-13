@@ -1,3 +1,15 @@
 .containerProductsSection {
     background-color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+}
+
+.products {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 32px;
 }
