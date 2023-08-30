@@ -4,7 +4,7 @@ import { appStore } from '../../../infrastructure/store/store';
 import { ServiceProducts } from '../service/repository-product';
 import { ProductI } from '../types/products';
 import { useProduct } from './useproduct';
-
+//porsia
 jest.mock('../service/repository-product');
 
 const mockProduct1 = {
