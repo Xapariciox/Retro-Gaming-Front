@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useUser } from '../../../features/users/hook/useUser';
 import style from './favorites.module.css';
 
 function Favorites() {
     const { handleDeleteFavorites } = useUser();
     const { user } = useUser();
-    const [favorites, setFavorites] = useState(user.user?.favorites[0])
+    const [favorites] = useState(user.user?.favorites[0])
 
 
     return (
