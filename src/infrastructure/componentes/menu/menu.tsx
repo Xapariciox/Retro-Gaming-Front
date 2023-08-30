@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import { useUser } from '../../../features/users/hook/useUser';
@@ -20,14 +20,15 @@ export function Menu() {
                     <div
                         className={`logo col-6   col-md-3 d-flex   d-sm-flex align-items-center justify-content-center pe-md-5    `}
                     >
-                        <Link to={'home'}>
+                       
+                        <NavLink  to={'home'}>
                             <img
                                 src="../../../assets/logo.png"
                                 width={60}
                                 height={60}
                                 alt=""
                             />
-                        </Link>
+                        </NavLink>
                         <p
                             className={`${style.retroGaming}  d-md-block mb-0  text-danger`}
                         >
@@ -42,54 +43,54 @@ export function Menu() {
                                     <nav
                                         className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
                                     >
-                                        <Link
+                                        <NavLink
                                             to={'/'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            className={({isActive})=> `px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                         >
                                             <div className="w-100">
                                                 <span>Home</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'products'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            className={({isActive})=> `px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                         >
                                             <div className="w-100">
                                                 <span>Products</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'favorites'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            className={({isActive})=> `px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                         >
                                             <div className="w-100">
                                                 <span>Favorites</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'/about'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            className={({isActive})=> `disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                         >
                                             <div className="w-100">
                                                 {' '}
                                                 <span>About</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'/contact'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                            className={({isActive})=> `disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                         >
                                             <div className="w-100">
                                                 {' '}
                                                 <span>Contact</span>
                                             </div>
-                                        </Link>
+                                        </NavLink>
                                     </nav>
 
                                     <div className="col-1 d-flex justify-content-center align-items-center">
-                                        <Link
+                                        <NavLink
                                             to={'/cart'}
-                                            className={`${style.cartLinkIcon} text-decoration-none`}
+                                            className={({isActive})=>  `${isActive ? "active": ""} ${style.cartLinkIcon} text-decoration-none `}
                                         >
                                             <img
                                                 src="../../../assets/cart.png"
@@ -103,28 +104,29 @@ export function Menu() {
                                                     user.user.cart.length
                                                 )}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </div>
 
                                     <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
-                                        <Link to={'/profile'}>
+                                        <NavLink to={'/profile'}                                  className={({isActive})=> `px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}>
                                             <img
                                                 src={user.user.imageProfile}
-                                                width={50}
+                                                width={50} 
                                                 height={55}
                                                 alt="ProfilePhoto"
                                                 className="me-2 "
                                             />
-                                        </Link>{' '}
-                                        <Link
+                                        </NavLink>{' '}
+                                        <NavLink
                                             to={'/login'}
+                                            className={({isActive})=> `px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active" : "no"} `}
                                             onClick={() => handleLogoutFinish()}
                                         >
                                             <img
                                                 src="../../../assets/logout.png"
                                                 alt=""
                                             />
-                                        </Link>
+                                        </NavLink>
                                     </div>
 
                                     <nav
@@ -139,60 +141,60 @@ export function Menu() {
                                                 id="drowup"
                                                 data-bs-toggle="dropdown"
                                             ></button>
-                                            <ul className="dropdown-menu ">
+                                            <ul className={`${style.dropMenu} dropdown-menu`}>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                    className={ ({isActive})=> ` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${isActive ? "active": ""} ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>Home</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/products'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={ ({isActive})=> ` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>
                                                                 Products
                                                             </span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/favorites'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>
                                                                 Favorites
                                                             </span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>About</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>Contact</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                             </ul>
                                         </div>
@@ -204,53 +206,53 @@ export function Menu() {
                                     <nav
                                         className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
                                     >
-                                        <Link
+                                        <NavLink
                                             to={'/'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                              className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                         >
                                             <div className="w-100">
                                                 <span>Home</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'products'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                              className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                         >
                                             <div className="w-100">
                                                 <span>Products</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'favorites'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                              className={({isActive})=>` pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                         >
                                             <div className="w-100">
                                                 <span>Favorites</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'/about'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                         className={({isActive})=>` pt-2 pb-2 disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                         >
                                             <div className="w-100">
                                                 {' '}
                                                 <span>About</span>
                                             </div>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                             to={'/contact'}
-                                            className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                         className={({isActive})=>` pt-2 pb-2 disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader} ${isActive ? "active": ""}`}
                                         >
                                             <div className="w-100">
                                                 {' '}
                                                 <span>Contact</span>
                                             </div>
-                                        </Link>
+                                        </NavLink>
                                     </nav>
                                     <div className="col-1 d-flex justify-content-center align-items-center">
-                                        <Link
+                                        <NavLink 
                                             to={'/cart'}
-                                            className={`${style.cartLinkIcon} text-decoration-none`}
+                                            className={({isActive})=>  `${isActive ? "active": ""} ${style.cartLinkIcon} text-decoration-none `}
                                         >
                                             <img
                                                 src="../../../assets/cart.png"
@@ -264,10 +266,10 @@ export function Menu() {
                                                     user.user.cart.length
                                                 )}
                                             </span>
-                                        </Link>
+                                        </NavLink>
                                     </div>
                                     <div className=" d-none col-2 d-md-flex justify-content-center align-items-center">
-                                        <Link to={'/profile'}>
+                                        <NavLink                                  className={({isActive})=>  `${isActive ? "active": ""}${style.cartLinkIcon} text-decoration-none`} to={'/profile'}>
                                             <img
                                                 src="../../../assets/Userwhitoutpick.png"
                                                 alt="Profile"
@@ -275,7 +277,7 @@ export function Menu() {
                                                 width={50}
                                                 height={50}
                                             />
-                                        </Link>{' '}
+                                        </NavLink>{' '}
                                         <Link
                                             to={'/login'}
                                             onClick={() => handleLogoutFinish()}
@@ -302,58 +304,58 @@ export function Menu() {
                                             ></button>
                                             <ul className="dropdown-menu ">
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={ ({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>Home</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/products'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>
                                                                 Products
                                                             </span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/favorites'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>
                                                                 Favorites
                                                             </span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>About</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="mt-1">
-                                                    <Link
+                                                    <NavLink
                                                         to={'/'}
-                                                        className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                        className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                                     >
                                                         <div className="w-100">
                                                             <span>Contact</span>
                                                         </div>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                             </ul>
                                         </div>
@@ -367,53 +369,53 @@ export function Menu() {
                             <nav
                                 className={`menu col-6 d-flex align-items-center justify-content-center  ${style.links} d-none d-md-flex`}
                             >
-                                <Link
+                                <NavLink
                                     to={'/'}
-                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                    className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                 >
                                     <div className="w-100">
                                         <span>Home</span>
                                     </div>
-                                </Link>
-                                <Link
+                                </NavLink>
+                                <NavLink
                                     to={'products'}
-                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                    className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                 >
                                     <div className="w-100">
                                         <span>Products</span>
                                     </div>
-                                </Link>
+                                </NavLink>
 
-                                <Link
+                                <NavLink
                                     to={'/about'}
-                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                    className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2  disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                 >
                                     <div className="w-100">
                                         {' '}
                                         <span>About</span>
                                     </div>
-                                </Link>
-                                <Link
+                                </NavLink>
+                                <NavLink
                                     to={'/contact'}
-                                    className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                    className={({isActive})=> `${isActive ? "active" : ""} pt-2 pb-2 disabled px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                 >
                                     <div className="w-100">
                                         {' '}
                                         <span>Contact</span>
                                     </div>
-                                </Link>
+                                </NavLink>
                             </nav>
                             <div className="col-3 d-none d-md-flex justify-content-center align-items-center ">
-                                <Link to={'/login'}>
+                                <NavLink to={'/login'}>
                                     <button className="btn btn-danger me-2">
                                         Login
                                     </button>
-                                </Link>
-                                <Link to={'register'}>
+                                </NavLink>
+                                <NavLink to={'register'}>
                                     <button className="btn btn-secondary">
                                         Sing up
                                     </button>
-                                </Link>
+                                </NavLink>
                             </div>
                             {/* menu hamburguesa */}
                             <nav
@@ -428,60 +430,60 @@ export function Menu() {
                                         id="drowup"
                                         data-bs-toggle="dropdown"
                                     ></button>
-                                    <ul className="dropdown-menu ">
-                                        <div className="  d-flex flex-column  align-items-end ">
-                                            <Link to={'/login'}>
+                                    <ul className={`dropdown-menu ${style.dropMenu}`}>
+                                        <div className="  d-flex flex-column  align-items-center gap-2 ">
+                                            <NavLink to={'/login'}>
                                                 <button className="btn w-75 w-100 btn-danger me-2">
                                                     Login
                                                 </button>
-                                            </Link>
-                                            <Link to={'register'}>
+                                            </NavLink>
+                                            <NavLink to={'register'}>
                                                 <button className="btn w-75 w-100 btn-secondary">
                                                     Sing up
                                                 </button>
-                                            </Link>
+                                            </NavLink>
                                         </div>
 
                                         <li className="mt-1">
-                                            <Link
+                                            <NavLink
                                                 to={'/'}
-                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                className={({isActive})=> `${isActive ? "active" : ""} px-4 pt-2 pb-2 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
                                                     <span>Home</span>
                                                 </div>
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         <li className="mt-1">
-                                            <Link
+                                            <NavLink
                                                 to={'/products'}
-                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                className={({isActive})=> `${isActive ? "active" : ""} px-4 pt-2 pb-2 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
                                                     <span>Products</span>
                                                 </div>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li className="mt-1">
-                                            <Link
+                                            <NavLink
                                                 to={'/'}
-                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                className={({isActive})=> `${isActive ? "active" : ""} px-4 pt-2 pb-2 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
                                                     <span>About</span>
                                                 </div>
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         <li className="mt-1">
-                                            <Link
+                                            <NavLink
                                                 to={'/'}
-                                                className={`px-4 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
+                                                className={({isActive})=> `${isActive ? "active" : ""} px-4 pt-2 pb-2 text-decoration-none d-flex align-items-center text-center ${style.linksHeader}`}
                                             >
                                                 <div className="w-100">
                                                     <span>Contact</span>
                                                 </div>
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                     </ul>
                                 </div>

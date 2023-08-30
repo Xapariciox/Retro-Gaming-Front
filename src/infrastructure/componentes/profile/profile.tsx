@@ -83,28 +83,29 @@ function Profile() {
                                 onClick={() => handleLogoutFinish()}
                                 to={'login'}
                             >
-                                <button className={style.link}>logout</button>
+                                <button className="btn btn-primary">logout</button>
                             </Link>
                             <button
-                                className={style.button}
+                                className="btn btn-primary"
                                 onClick={() => onClick2()}
                             >
                                 Delete Account
                             </button>
-                            <form onSubmit={handleSubmit}>
+                            <form className={style.customInputFile} onSubmit={handleSubmit}>
                                 <input
                                     accept="image/*"
                                     type="file"
                                     name=""
                                     id=""
+                                    className={style.inputFile}
                                     onChange={(file) => setfile(file)}
                                 />
-                                <button>upload</button>
+                                <button className="btn btn-primary">Change image</button>
                             </form>
                         </div>
                         <div className={style.deletePurchasedProduct}>
-                            <h1>Purchased Products</h1>
-                            <button onClick={() => onClick()}>❌</button>
+                            <h1>Purchased products</h1>
+                            <button className={style.deletePurchasedProductButton} onClick={() => onClick()}>❌</button>
                         </div>
                         <div className={style.containerPurchased}>
                             <ul className={style.purchasedProducts}>
@@ -124,7 +125,7 @@ function Profile() {
                                             {item.amount}
                                         </p>
                                         <p>
-                                            total:
+                                            total: {" "}
                                             {item.amount * item.product.price}€
                                         </p>
                                     </li>
@@ -139,37 +140,36 @@ function Profile() {
                         <div className={style.containerTotal}>
                             <h1>Account management</h1>
                             <div className={style.containerButton}>
-                                <Link
-                                    onClick={() => handleLogoutFinish()}
-                                    to={'login'}
-                                >
-                                    <button className={style.link}>
-                                        logout
-                                    </button>
-                                </Link>
-                                <button
-                                    className={style.button}
-                                    onClick={() => onClick2()}
-                                >
-                                    Delete Account
-                                </button>
-                                <form onSubmit={handleSubmit}>
-                                    <input
-                                        accept="image/*"
-                                        type="file"
-                                        name=""
-                                        id=""
-                                        onChange={(file) => setfile(file)}
-                                    />
-                                    <button>upload</button>
-                                </form>
+                            <Link
+                                onClick={() => handleLogoutFinish()}
+                                to={'login'}
+                            >
+                                <button className="btn btn-primary">Logout</button>
+                            </Link>
+                            <button
+                                className="btn btn-primary"
+                                onClick={() => onClick2()}
+                            >
+                                Delete Account
+                            </button>
+                            <form className={style.customInputFile} onSubmit={handleSubmit}>
+                                <input
+                                    accept="image/*"
+                                    type="file"
+                                    name=""
+                                    id=""
+                                    className={style.inputFile}
+                                    onChange={(file) => setfile(file)}
+                                />
+                                <button className="btn btn-primary">Change profile Image</button>
+                            </form>
                             </div>
 
                             <h1>Purchased Products</h1>
 
                             <div className={style.containerPurchased}>
                                 <div className={style.emptyContent}>
-                                    <p className={style.empty}>Empty...</p>
+                                    <p className={style.empty}>Empty</p>
                                 </div>
                             </div>
                         </div>
