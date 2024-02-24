@@ -413,7 +413,7 @@ export function Menu() {
                                 </NavLink>
                                 <NavLink to={'register'}>
                                     <button className="btn btn-secondary">
-                                        Sing up
+                                        Sign up
                                     </button>
                                 </NavLink>
                             </div>
@@ -439,7 +439,7 @@ export function Menu() {
                                             </NavLink>
                                             <NavLink to={'register'}>
                                                 <button className="btn w-75 w-100 btn-secondary">
-                                                    Sing up
+                                                Sign up
                                                 </button>
                                             </NavLink>
                                         </div>
